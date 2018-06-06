@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
         <!-- Styles -->
         <style>
@@ -64,7 +65,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="bg-dark">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel start
+                    Laravel started
                 </div>
 
                 <div class="links">
