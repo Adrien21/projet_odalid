@@ -14,3 +14,6 @@
 Route::get('/', 'UtilisateurController@form_connexion')->name('Accueil');
 
 Route::post('/connexion', 'UtilisateurController@connexion');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
