@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ConnexionController@connexion')->name('Accueil');
+
+// Route::post('/', )
