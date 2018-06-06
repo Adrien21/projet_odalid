@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'ConnexionController@form_connexion')->name('Accueil');
+Route::get('/', 'UtilisateurController@form_connexion')->name('Accueil');
 
-Route::post('/connexion', 'ConnexionController@connexion');
+Route::post('/connexion', 'UtilisateurController@connexion');

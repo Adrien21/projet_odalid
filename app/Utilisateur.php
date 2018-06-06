@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Connexion extends Model
+class Utilisateur extends Model
 {
     protected $fillable = [
         'identifiant', 'password',
