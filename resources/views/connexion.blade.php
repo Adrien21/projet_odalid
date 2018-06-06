@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,17 +13,18 @@
     </head>
     
     <body>
-        <form method="POST" action="">
+        <form method="POST" action="/connexion">
             <fieldset>
                 <h2>Connexion</h2>
                 <p>
-                    <label for="pseudo">Pseudo :</label><br/>
-                    <input type="text" name="pseudo" size="40" required />
+                    <label for="identifiant">Identifiant :</label><br/>
+                    <input type="text" name="identifiant" size="40" required />
                 </p>
                 <p>
                     <label for="password">Mot de passe :</label><br/>
-                    <input type="password" name="mdp" size="40" required />
+                    <input type="password" name="password" size="40" required />
                 </p>
+                {{ csrf_field() }}
             </fieldset>
             <p>
                 <input type="submit" name="envoyer" value="Se connecter" />
