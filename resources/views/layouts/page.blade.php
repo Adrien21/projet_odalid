@@ -5,17 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>ODALID-@yield('titre')</title>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
     <body class="bg-info">
+        <header>
+        @section('header')
 
-        @section('sidebar')
-            Master sidebar
+                <h1>Header toujours visible </h1>
+
         @show
+        </header>
+        <main>
         @yield('content')
-
+        </main>
         <script src="js/bootstrap.min.js'"></script>
     </body>
 </html>
