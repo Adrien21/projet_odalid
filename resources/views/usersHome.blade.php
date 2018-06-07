@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-  <h1>Utilisateurs Acueuil</h1>
+  <h1>Utilisateurs Home </h1>
   <div></div>
 </body>
 </html>
