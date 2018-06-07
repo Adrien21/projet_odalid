@@ -16,3 +16,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('accueil');
 
 Route::get('index', 'HomeController@test')->name('test');
+
+Route::post('/login', 'LogPseudoController@authentificate');
