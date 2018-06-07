@@ -13,7 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('accueil');
+Route::get('/', 'HomeController@index')->name('Accueil');
+Route::get('/zones', 'ZonesController@zonesHome');
+Route::get('/users','UsersController@usersHome');
 
 Route::get('index', 'HomeController@test')->name('test');
 
