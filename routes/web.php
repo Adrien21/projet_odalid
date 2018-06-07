@@ -11,7 +11,6 @@
 |
 */
 
-Route::post('/connexion', 'UtilisateurController@connexion');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('Accueil');
