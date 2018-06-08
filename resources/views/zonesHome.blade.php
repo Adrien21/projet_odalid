@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Zones Accueil</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body>
-  <h1>Zones Acueuil</h1>
-  <div></div>
-</body>
-</html>
+@extends('layouts.infrastructure')
+
+
+@section('content')
+  <h1 class="text-center">Accueil zones</h1>
+
+  <ul class="nav nav-tabs justify-content-around col-md-4 offset-md-4">
+  	<li class="nav-item"><a class="nav-link" href="#">Zone 1</a></li>
+  	<li class="nav-item"><a class="nav-link" href="#">Zone 2</a></li>
+  	<li class="nav-item"><a class="nav-link" href="#">Zone 3</a></li>
+  </ul>
+
+@endsection

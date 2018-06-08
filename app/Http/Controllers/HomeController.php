@@ -29,4 +29,29 @@ class HomeController extends Controller
     public function test(){
         return view('index');
     }
+
+    // Redirection gestion zones dans infrastructure
+    public function zones() {
+        return view('zonesHome');
+    }
+
+    // Redirection gestion portes dans infrastructure
+    public function portes() {
+        return view('portesHome');
+    }
+
+    // Redirection gestion relais dans infrastructure
+    public function relais() {
+        return view('relaisHome');
+    }
+
+    // Redirection gestion gaches dans infrastructure
+    public function gaches() {
+        return view('gachesHome');
+    }
+
+    // Redirection gestion lecteurs dans infrastructure
+    public function lecteurs() {
+        return view('lecteursHome');
+    }
 }
