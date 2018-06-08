@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Auth;
 
-class LoginController extends Controller
+class LogPseudoController extends Controller
 {
     public function authentificate(Request $request){
 
