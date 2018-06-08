@@ -24,11 +24,11 @@
 
                     <a href="#" class="dropdown-toggle list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu_infrastructure">Infrastructure</a>
                     <div class="dropdown-menu" aria-labelledby="menu_infrastructure">
-                        <a href="#" class="dropdown-item">Zone</a>
-                        <a href="#" class="dropdown-item">Porte</a>
-                        <a href="#" class="dropdown-item">Relais</a>
-                        <a href="#" class="dropdown-item">Gâche</a>
-                        <a href="#" class="dropdown-item">Lecteur</a>
+                        <a href="/infrastructure/zones" class="dropdown-item">Zone</a>
+                        <a href="/infrastructure/portes" class="dropdown-item">Porte</a>
+                        <a href="/infrastructure/relais" class="dropdown-item">Relais</a>
+                        <a href="/infrastructure/gaches" class="dropdown-item">Gâche</a>
+                        <a href="/infrastructure/lecteurs" class="dropdown-item">Lecteur</a>
                     </div>
 
                     <a href="#" class="list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3"></a>
