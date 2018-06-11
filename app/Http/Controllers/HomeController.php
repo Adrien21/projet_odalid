@@ -47,7 +47,7 @@ class HomeController extends Controller
         // 
 
 
-        return view('usersHome'); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue usersHome.blade.php: ", ['utilisateurs' => $utilisateurs]"
+        return view('utilisateursHome'); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue usersHome.blade.php: ", ['utilisateurs' => $utilisateurs]"
     }
 
     // Redirection vers l'historique

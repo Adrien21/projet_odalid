@@ -1,6 +1,6 @@
 @extends('layouts.navigation')
 
-@section('titre', 'Relais')
+@section('titre', 'Historique')
 
 @section('content')
   <h1 class="text-center">Accueil historique</h1>
