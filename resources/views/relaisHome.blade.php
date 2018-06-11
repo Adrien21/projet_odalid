@@ -1,4 +1,4 @@
-@extends('layouts.infrastructure')
+@extends('layouts.navigation')
 
 @section('titre', 'Relais')
 
