@@ -34,7 +34,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav m-auto dropright">
                             <div class="list-group d-inline-flex flex-wrap flex-row justify-content-between text-center">
-                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
+                                <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
 
                                 <a href="/historique" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Historique</a>
 
