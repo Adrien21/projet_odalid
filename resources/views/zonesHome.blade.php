@@ -22,10 +22,15 @@
 		<!-- Contenu zone 1 -->
 		<div class="tab-pane" id="zone_1" role="tabpanel" aria-labelledby="zone_1-tab">
 			<ul class="list-group col-md-8 offset-md-2">
-				<li class="list-group-item list-group-item-info">
-					<div class="d-flex flex-wrap justify-content-between">
-						Porte d'entrée <p class="m-0">test1</p><p class="m-0">test2</p>
-					</div>
+				<li class="list-group-item list-group-item-info d-flex flex-wrap justify-content-between">
+					Porte d'entrée
+
+					<!-- Essai bouton porte ouverte/fermée -->
+					<label class="switch">
+  						<input type="checkbox">
+  						<span class="slider"></span>
+  					</label>
+  					<p class="m-0">test2</p>
 				</li>
 
 				<li class="list-group-item">
@@ -48,12 +53,52 @@
 
 		<!-- Contenu zone 2 -->
 		<div class="tab-pane" id="zone_2" role="tabpanel" aria-labelledby="zone_2-tab">
-			qsdfqsdfqsdfqsdfqsdfqsdfqsdfqsdf
+			<ul class="list-group col-md-8 offset-md-2">
+				<li class="list-group-item list-group-item-info d-flex flex-wrap justify-content-between">
+					Porte des toilettes <p class="m-0">test1</p><p class="m-0">test2</p>
+				</li>
+
+				<li class="list-group-item">
+					Porte du toit
+				</li>
+
+				<li class="list-group-item list-group-item-info">
+					Porte du sous-sol
+				</li>
+
+				<li class="list-group-item">
+					Porte du secrétariat
+				</li>
+
+				<li class="list-group-item list-group-item-info">
+					Porte de la cage
+				</li>
+			</ul>
 		</div>
 
 		<!-- Contenu zone 3 -->
 		<div class="tab-pane" id="zone_3" role="tabpanel" aria-labelledby="zone_3-tab">
-			wxcvwxcvwxcvwxcv
+			<ul class="list-group col-md-8 offset-md-2">
+				<li class="list-group-item list-group-item-info">
+					Porte des stocks
+				</li>
+
+				<li class="list-group-item">
+					Porte du bureau
+				</li>
+
+				<li class="list-group-item list-group-item-info d-flex flex-wrap justify-content-between">
+					Porte d'entrée <p class="m-0">test1</p><p class="m-0">test2</p>
+				</li>
+
+				<li class="list-group-item">
+					Porte de la cafétéria
+				</li>
+
+				<li class="list-group-item list-group-item-info">
+					Porte du laboratoire
+				</li>
+			</ul>
 		</div>
 	</div>
 
