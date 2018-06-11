@@ -7,9 +7,9 @@
 
   <!-- Normalement l'historique peut se récupérer grâce à un foreach
 
-      exemple pour récupérer que les prénoms des personnes ayant ouvert une porte
+      exemple pour récupérer que les prénoms des personnes ayant ouvert une porte et la date
       foreach ($historiques as $historique) {
-        echo $historique->prenom;
+        echo "Prénom: " .$historique->prenom .", date: " .$historique->date;
       }
   -->
 @endsection
