@@ -24,6 +24,8 @@ Route::post('/login', 'LogPseudoController@authentificate');
 // Test de routes sécurisées avec le controller HomeController
 // (Donc non accessibles si non connecté)
 
+Route::get('/historique', 'HomeController@historique')->name('Historique');
+
 Route::get('/infrastructure/zones', 'HomeController@zones')->name('Zones');
 Route::get('/infrastructure/portes', 'HomeController@portes')->name('Portes');
 Route::get('/infrastructure/relais', 'HomeController@relais')->name('Relais');

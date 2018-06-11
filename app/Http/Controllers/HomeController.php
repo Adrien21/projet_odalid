@@ -30,6 +30,25 @@ class HomeController extends Controller
         return view('index');
     }
 
+    // Redirection gestion lecteurs dans infrastructure
+    public function historique() {
+        // Requête NORMALEMENT fonctionnelle pour récupérer l'historique
+        // A tester avec le bon squelette de BDD
+        // Résultat attendu : "nom de la salle - nom de la porte - date dans l'historique - nom de la personne - prenom de la personne"
+
+        // $historiques = DB::table('od_historique')
+        //                     ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
+        //                     ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
+        //                     ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
+        //                     ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
+        //                     ->select('od_salle.nom', 'od_porte.nom', 'od_historique.date', 'od_identite.nom', "od_identite.prenom")
+        //                     ->get()
+        // 
+
+
+        return view('historiqueHome'); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue historiqueHome.blade.php: ", ['historiques' => $historiques]"
+    }
+
     // Redirection gestion zones dans infrastructure
     public function zones() {
         return view('zonesHome');
