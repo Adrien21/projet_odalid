@@ -45,7 +45,6 @@ class HomeController extends Controller
         //                     ->join('od_jour', 'od_identitezone.id', '=', 'od_jour.identitezone_id')
         //                     ->select('od_identite.nom', 'od_identite.prenom', 'od_identite.datedevalidite', 'od_zone.nom', 'od_identitezone.datedebut', 'od_identitezone.datefin', 'od_jour.heuredebut', 'od_jour.heurefin')
         //                     ->get()
-        // 
 
 
         return view('utilisateursHome'); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue usersHome.blade.php: ", ['utilisateurs' => $utilisateurs]"
