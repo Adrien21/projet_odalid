@@ -31,10 +31,14 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        @guest
+                        @else
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav m-auto dropright">
                             <div class="list-group d-inline-flex flex-wrap flex-row justify-content-between text-center">
                                 <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
+
+                                <a href="/badges" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Badges</a>
 
                                 <a href="/historique" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Historique</a>
 
@@ -49,7 +53,7 @@
                                 </div>
                             </div>
                         </ul>
-
+                        @endguest
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
