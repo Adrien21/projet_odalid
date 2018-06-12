@@ -9,13 +9,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public $timestamps = false;
+
+    protected $table = 'od_user';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password', 'enabled', 'expire_at', 'locked'
     ];
 
     /**
@@ -24,6 +28,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'uuid',
     ];
+
+
+// gerer le remember_token
+    public function getRememberToken(){
+        return $this->uuid;
+    }
+    public function setRememberToken($value){
+        $this->uuid = $value;
+    }
+    public function getRememberTokenName(){
+        return 'uuid';
+    }
 }

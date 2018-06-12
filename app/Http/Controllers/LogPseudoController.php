@@ -9,7 +9,7 @@ class LogPseudoController extends Controller
 {
     public function authentificate(Request $request){
 
-        $credentials = $request->only('name', 'password');
+        $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)){
             return redirect()->intended('index');
