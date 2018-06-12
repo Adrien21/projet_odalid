@@ -24,6 +24,8 @@ Route::get('/utilisateurs', 'HomeController@utilisateurs')->name('Utilisateurs')
 
 Route::get('/historique', 'HomeController@historique')->name('Historique');
 
+Route::get('/badges', 'HomeController@badges')->name('Badges');
+
 Route::get('/infrastructure/zones', 'HomeController@zones')->name('Zones');
 Route::get('/infrastructure/portes', 'HomeController@portes')->name('Portes');
 Route::get('/infrastructure/relais', 'HomeController@relais')->name('Relais');

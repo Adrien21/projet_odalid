@@ -31,22 +31,27 @@ class HomeController extends Controller
         return view('index');
     }
 
-    // Redirection vers utilisateurs
-    public function utilisateurs() {
+    // Redirection vers badges
+    public function badges() {
         // Requête NORMALEMENT fonctionnelle pour récupérer l'utilisateur et ses droits
         // A tester avec le bon squelette de BDD
         // Résultat attendu : "nom de l'utilisateur - prénom de l'utilisateur - date de validité - nom de zone - date début et fin de permission de zone - heure de début et fin de permission d'accès"
 
         // !!! Vérifier les majuscules sur la bonne BDD !!!
 
-        $utilisateurs = DB::table('od_identite')
+        $badges = DB::table('od_identite')
                                ->select('od_identite.id','od_identite.Nom', 'od_identite.Prenom','od_identite.Sexe','od_identite.NumeroID', 'od_identite.DateDeValidite','od_identite.Type', 'od_identite.Email', 'od_identite.DateDeNaissance', 'od_identite.NumIdentite')
                                ->get();
 
 
-           return view('utilisateursHome', ['utilisateurs' => $utilisateurs]);
+           return view('badgesHome', ['badges' => $badges]);
         // return view('utilisateursHome');
-        // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue usersHome.blade.php: ", ['utilisateurs' => $utilisateurs]"
+        // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue usersHome.blade.php: ", ['badges' => $badges]"
+    }
+
+    // Redirection utilisateurs
+    public function utilisateurs() {
+        return view('utilisateursHome');
     }
 
     // Redirection vers l'historique
