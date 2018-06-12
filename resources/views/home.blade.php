@@ -20,9 +20,9 @@
 
                 <!-- Menu d'accueil -->
                 <div class="list-group d-inline-flex flex-wrap flex-row justify-content-center text-center col-md-12 my-3 dropright">
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3">Utilisateurs</a>
+                    <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3">Utilisateurs</a>
 
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3">Historique</a>
+                    <a href="/historique" class="list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3">Historique</a>
 
                     <a href="#" class="dropdown-toggle list-group-item list-group-item-action list-group-item-primary w-25 py-5 m-2 text-center col-md-3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu_infrastructure">Infrastructure</a>
                     <!-- Dropdown d'infrastructure -->

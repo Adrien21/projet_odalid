@@ -34,9 +34,9 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav m-auto dropright">
                             <div class="list-group d-inline-flex flex-wrap flex-row justify-content-between text-center">
-                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
+                                <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
 
-                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Historique</a>
+                                <a href="/historique" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Historique</a>
 
                                 <a href="#" class="dropdown-toggle list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu_infrastructure">Infrastructure</a>
                                 <!-- Dropdown d'infrastructure -->
@@ -89,5 +89,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/jquery-3.3.1.js') }}" defer></script>
 </body>
 </html>
