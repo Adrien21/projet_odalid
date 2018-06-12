@@ -61,11 +61,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                                 </li>
-                               <!--
+                               <!-- a mettre en commentaire -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
-                                -->
+                                <!-- fin de mise en commentaire -->
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
