@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class HomeController extends Controller
 {
     /**
@@ -40,8 +41,8 @@ class HomeController extends Controller
         // !!! Vérifier les majuscules sur la bonne BDD !!!
 
         $badges = DB::table('od_identite')
-                               ->select('od_identite.id','od_identite.Nom', 'od_identite.Prenom','od_identite.Sexe','od_identite.NumeroID', 'od_identite.DateDeValidite','od_identite.Type', 'od_identite.Email', 'od_identite.DateDeNaissance', 'od_identite.NumIdentite')
-                               ->get();
+                               ->select('od_identite.id','od_identite.nom', 'od_identite.prenom','od_identite.sexe','od_identite.numeroID', 'od_identite.dateDeValidite','od_identite.type', 'od_identite.email', 'od_identite.dateDeNaissance', 'od_identite.numeroIdentite')
+                               ->paginate(50);
 
 
            return view('badgesHome', ['badges' => $badges]);
