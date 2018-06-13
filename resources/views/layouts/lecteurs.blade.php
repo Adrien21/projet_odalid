@@ -15,6 +15,10 @@
         <input type="text" id="nom" name="nom" value="@yield('nom')" required>
         <label for="porte_id">Porte* : </label>
         <!-- Compléter avec <select> dynamique -->
+            <!-- test -->
+            <select id="porte_id" name="porte_id" required>
+                @yield('option')
+            </select>
     </p>
 
     {{ csrf_field() }}

@@ -61,6 +61,8 @@ class EditController extends Controller
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs($n) {
         $lecteur = Lecteur::where('id', $n)->first();
-        return view('lecteursEdit')->with('lecteur', $lecteur);
+        $portes = Porte::get();
+        return view('lecteursEdit')->with('lecteur', $lecteur)
+                                    ->with('portes', $portes);
     }
 }

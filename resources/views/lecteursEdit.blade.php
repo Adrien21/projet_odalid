@@ -6,4 +6,14 @@
 @section('ip', $lecteur->ip)
 @section('mac', $lecteur->mac)
 @section('nom', $lecteur->nom)
-@section('porte_id', $lecteur->porte_id)
+
+@section('option')
+	@foreach ($portes as $porte)
+
+		@if ($lecteur->porte_id === $porte->id)
+    		<option value="{{ $porte->id }}" selected>{{ $porte->nom }}</option>
+    	@else
+    		<option value="{{ $porte->id }}">{{ $porte->nom }}</option>
+    	@endif
+    @endforeach
+@endsection
