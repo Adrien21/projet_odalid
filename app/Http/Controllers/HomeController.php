@@ -78,7 +78,11 @@ class HomeController extends Controller
 
     // Redirection gestion zones dans infrastructure
     public function zones() {
-        return view('zonesHome');
+        $zones = DB::table('od_zone')
+                               ->select('od_zone.id','od_zone.nom')
+                               ->get();
+
+        return view('zonesHome', ['zones' => $zones]);
     }
 
     // Redirection gestion portes dans infrastructure
