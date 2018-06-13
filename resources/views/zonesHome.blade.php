@@ -8,7 +8,7 @@
 	<div class="col-8 offset-2">
 
 		@foreach ($zones as $zone)
-			<a href="#" class="d-inline-flex justify-content-center mt-2">
+			<a href="zones/edit/{{ $zone->id }}" class="d-inline-flex justify-content-center mt-2">
 				<div class="card bg-light">
 					<div class="card-body">
 						<p>{{ $zone->nom }}</p>

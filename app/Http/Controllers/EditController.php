@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
+use App\Zone;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -30,8 +31,9 @@ class EditController extends Controller
     }
 
     // Redirection gestion zones dans infrastructure
-    public function zones() {
-        return view('zonesEdit');
+    public function zones($n) {
+        $zone = Zone::where('id', $n)->first();
+        return view('zonesEdit')->with('zone', $zone);
     }
 
     // Redirection gestion portes dans infrastructure
