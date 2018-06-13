@@ -52,7 +52,8 @@ class HomeController extends Controller
 
     // Redirection utilisateurs
     public function utilisateurs() {
-        return view('utilisateursHome');
+        $users = User::get();
+        return view('utilisateursHome')->with('users', $users);
     }
 
     // Redirection vers l'historique
