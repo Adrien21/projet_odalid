@@ -54,19 +54,20 @@ class HomeController extends Controller
     }
 
     // Redirection vers l'historique
-    public function historique() {
+    public function historique(Request $search) {
         // Requête NORMALEMENT fonctionnelle pour récupérer l'historique
         // A tester avec le bon squelette de BDD
         // Résultat attendu : "nom de la salle - nom de la porte - date dans l'historique - nom de la personne - prenom de la personne"
 
         // !!! Vérifier les majuscules sur la bonne BDD !!!
-
+        $search = '%'.$search->search.'%';
         $historiques = DB::table('od_historique')
                             ->select('od_historique.id', 'od_identite.nom as identite_nom', 'od_historique.dateEvenement', 'od_porte.nom as porte_nom', 'od_historique.etatEvenement')
                             ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
                             ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
                             ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
                             ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
+                            ->where('od_identite.nom','like', $search)
                             ->paginate(25);
 
 
