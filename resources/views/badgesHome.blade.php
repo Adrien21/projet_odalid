@@ -21,25 +21,22 @@
       </thead>
       <tbody>
 
-<?php foreach ($badges as $badge) {
-
-    echo "<br/></br/>
+        @foreach ($badges as $badge)
             <tr>
-            <th scope='row'>" . $badge->id . "</th>";
-               echo "<td>".$badge->Nom ."</td>";
-               echo "<td>".$badge->Prenom ."</td>";
-                echo "<td>".$badge->Sexe ."</td>";
-               echo "<td>".$badge->NumeroID ."</td>";
-               echo "<td>".$badge->DateDeValidite ."</td>";
-               echo "<td>".$badge->Type ."</td>";
-               echo "<td>".$badge->Email ."</td>";
-               echo "<td>".$badge->DateDeNaissance ."</td>";
-               echo "<td>".$badge->NumIdentite ."</td>
-          </tr>";
-             }
-?>
+              <th scope='row'>{{ $badge->id }}</th>
+              <td>{{ $badge->nom }}</td>
+              <td>{{ $badge->prenom }}</td>
+              <td>{{ $badge->sexe }}</td>
+              <td>{{ $badge->numeroID }}</td>
+              <td>{{ $badge->dateDeValidite }}</td>
+              <td>{{ $badge->type }}</td>
+              <td>{{ $badge->email }}</td>
+              <td>{{ $badge->dateDeNaissance }}</td>
+              <td>{{ $badge->numeroIdentite }}</td>
+          </tr>
+        @endforeach
       </tbody>
     </table>
-
+  {{ $badges->links() }}
 
 @endsection
