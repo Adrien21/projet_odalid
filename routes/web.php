@@ -28,6 +28,6 @@ Route::get('/badges', 'HomeController@badges')->name('Badges');
 
 Route::get('/infrastructure/zones', 'HomeController@zones')->name('Zones');
 Route::get('/infrastructure/portes', 'HomeController@portes')->name('Portes');
-Route::get('/infrastructure/relais', 'HomeController@relais')->name('Relais');
+Route::get('/infrastructure/salles', 'HomeController@salles')->name('Salles');
 Route::get('/infrastructure/gaches', 'HomeController@gaches')->name('Gâches');
 Route::get('/infrastructure/lecteurs', 'HomeController@lecteurs')->name('Lecteurs');

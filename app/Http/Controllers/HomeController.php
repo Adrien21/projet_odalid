@@ -92,9 +92,11 @@ class HomeController extends Controller
         return view('portesHome', ['portes' => $portes]);
     }
 
-    // Redirection gestion relais dans infrastructure
-    public function relais() {
-        return view('relaisHome');
+    // Redirection gestion salles dans infrastructure
+    public function salles() {
+        $salles = DB::table('od_salle')->get();
+
+        return view('sallesHome', ['salles' => $salles]);
     }
 
     // Redirection gestion gaches dans infrastructure

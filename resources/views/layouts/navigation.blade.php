@@ -47,7 +47,7 @@
                                 <div class="dropdown-menu bg-light" aria-labelledby="menu_infrastructure">
                                     <a href="/infrastructure/zones" class="dropdown-item">Zones</a>
                                     <a href="/infrastructure/portes" class="dropdown-item">Portes</a>
-                                    <a href="/infrastructure/relais" class="dropdown-item">Relais</a>
+                                    <a href="/infrastructure/salles" class="dropdown-item">Salles</a>
                                     <a href="/infrastructure/gaches" class="dropdown-item">Gâches</a>
                                     <a href="/infrastructure/lecteurs" class="dropdown-item">Lecteurs</a>
                                 </div>
