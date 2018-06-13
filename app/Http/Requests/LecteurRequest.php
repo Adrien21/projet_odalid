@@ -13,7 +13,7 @@ class LecteurRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class LecteurRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ip' => 'bail|required',
+            'mac' => 'bail|required',
+            'nom' => 'bail|required',
+            'porte_id' => 'bail|required',
         ];
     }
 }
