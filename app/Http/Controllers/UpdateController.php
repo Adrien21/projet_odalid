@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Badge;
 use App\Zone;
+use App\Porte;
+use App\Salle;
+use App\Gache;
+use App\Lecteur;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
 use App\Http\Requests\ZoneRequest;
+use App\Http\Requests\PorteRequest;
+use App\Http\Requests\SalleRequest;
+use App\Http\Requests\GacheRequest;
+use App\Http\Requests\LecteurRequest;
 
 class UpdateController extends Controller
 {
@@ -34,27 +42,31 @@ class UpdateController extends Controller
 
     // Redirection gestion zones dans infrastructure
     public function zones($n, ZoneRequest $req) {
-        $requete = Zone::find($n)->update(['nom' => $req->nom]);
+        $requete = Zone::find($n)->update($req->all());
         return redirect()->route('ZonesEdit', ['n' => $n]);
     }
 
     // Redirection gestion portes dans infrastructure
-    public function portes() {
-        return view('portesEdit');
+    public function portes($n, ZoneRequest $req) {
+        $requete = Porte::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('PortesEdit', ['n' => $n]);
     }
 
-    // Redirection gestion relais dans infrastructure
-    public function relais() {
-        return view('relaisEdit');
+    // Redirection gestion salles dans infrastructure
+    public function salles($n, ZoneRequest $req) {
+        $requete = Salle::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('SallesEdit', ['n' => $n]);
     }
 
     // Redirection gestion gaches dans infrastructure
-    public function gaches() {
-        return view('gachesEdit');
+    public function gaches($n, ZoneRequest $req) {
+        $requete = Gache::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('GâchesEdit', ['n' => $n]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
-    public function lecteurs() {
-        return view('lecteursEdit');
+    public function lecteurs($n, ZoneRequest $req) {
+        $requete = Lecteur::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('LecteursEdit', ['n' => $n]);
     }
 }

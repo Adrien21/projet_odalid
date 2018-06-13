@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Badge;
 use App\Zone;
+use App\Porte;
+use App\Salle;
+use App\Gache;
+use App\Lecteur;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -37,22 +41,26 @@ class EditController extends Controller
     }
 
     // Redirection gestion portes dans infrastructure
-    public function portes() {
-        return view('portesEdit');
+    public function portes($n) {
+        $porte = Porte::where('id', $n)->first();
+        return view('portesEdit')->with('porte', $porte);;
     }
 
-    // Redirection gestion relais dans infrastructure
-    public function relais() {
-        return view('relaisEdit');
+    // Redirection gestion salles dans infrastructure
+    public function salles($n) {
+        $salle = Salle::where('id', $n)->first();
+        return view('sallesEdit')->with('salle', $salle);;
     }
 
     // Redirection gestion gaches dans infrastructure
-    public function gaches() {
-        return view('gachesEdit');
+    public function gaches($n) {
+        $gache = Gache::where('id', $n)->first();
+        return view('gachesEdit')->with('gache', $gache);;
     }
 
     // Redirection gestion lecteurs dans infrastructure
-    public function lecteurs() {
-        return view('lecteursEdit');
+    public function lecteurs($n) {
+        $lecteur = Lecteur::where('id', $n)->first();
+        return view('lecteursEdit')->with('lecteur', $lecteur);;
     }
 }

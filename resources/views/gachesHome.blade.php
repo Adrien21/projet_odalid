@@ -8,7 +8,7 @@
 	<div class="col-8 offset-2">
 
 		@foreach ($gaches as $gache)
-			<a href="#" class="d-inline-flex justify-content-center mt-2">
+			<a href="gaches/edit/{{ $gache->id }}" class="d-inline-flex justify-content-center mt-2">
 				<div class="card bg-light">
 					<div class="card-body">
 						<p>{{ $gache->nom }}</p>
