@@ -8,7 +8,7 @@
 	<div class="col-8 offset-2">
 
 		@foreach ($portes as $porte)
-			<a href="#" class="d-inline-flex justify-content-center mt-2">
+			<a href="portes/edit/{{ $porte->id }}" class="d-inline-flex justify-content-center mt-2">
 				<div class="card bg-light">
 					<div class="card-body">
 						<p>{{ $porte->nom }}</p>
