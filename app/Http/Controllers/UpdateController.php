@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
+use App\Zone;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
+use App\Http\Requests\ZoneRequest;
 
 class UpdateController extends Controller
 {
@@ -31,8 +33,9 @@ class UpdateController extends Controller
     }
 
     // Redirection gestion zones dans infrastructure
-    public function zones() {
-        return view('zonesEdit');
+    public function zones($n, ZoneRequest $req) {
+        $requete = Zone::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('ZonesEdit', ['n' => $n]);
     }
 
     // Redirection gestion portes dans infrastructure
