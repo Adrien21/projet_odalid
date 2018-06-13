@@ -25,6 +25,10 @@ Route::get('/utilisateurs', 'HomeController@utilisateurs')->name('Utilisateurs')
 Route::get('/historique', 'HomeController@historique')->name('Historique');
 
 Route::get('/badges', 'HomeController@badges')->name('Badges');
+Route::get('/badges/create', function(){
+    view('badgesCreate');
+});
+Route::post('/badges/create', 'CreateController@badges')->name('BadgesCreate');
 Route::get('/badges/edit/{n?}', 'EditController@badges')->where('n', '[0-9]+')->name('BadgesEdit');
 Route::post('/badges/edit/{n?}', 'UpdateController@badges')->where('n', '[0-9]+')->name('BadgesUpdate');
 
