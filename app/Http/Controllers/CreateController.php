@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
-use App\Zone;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
-use App\Http\Requests\ZoneRequest;
 
-class UpdateController extends Controller
+class CreateController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -21,9 +19,9 @@ class UpdateController extends Controller
      */
 
     // Redirection vers badges
-    public function badges($n, BadgeRequest $req) {
-        $requete = Badge::find($n)->update($req->all());
-        return redirect()->route('BadgesEdit', ['n' => $n]);
+    public function badges(BadgeRequest $req) {
+        $requete = Badge::create($req->all());
+        //return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
     // Redirection utilisateurs
@@ -33,9 +31,8 @@ class UpdateController extends Controller
     }
 
     // Redirection gestion zones dans infrastructure
-    public function zones($n, ZoneRequest $req) {
-        $requete = Zone::find($n)->update(['nom' => $req->nom]);
-        return redirect()->route('ZonesEdit', ['n' => $n]);
+    public function zones() {
+        return view('zonesEdit');
     }
 
     // Redirection gestion portes dans infrastructure

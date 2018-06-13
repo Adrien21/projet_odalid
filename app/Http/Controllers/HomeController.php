@@ -30,10 +30,6 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function test(){
-        return view('index');
-    }
-
     // Redirection vers badges
     public function badges() {
         // Requête NORMALEMENT fonctionnelle pour récupérer l'utilisateur et ses droits
