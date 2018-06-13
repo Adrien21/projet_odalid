@@ -8,15 +8,15 @@
 	<div class="col-8 offset-2">
 
 		@foreach ($zones as $zone)
-		<div class="card bg-light mb-3" style="max-width: 18rem;">
-			<div class="card-body">
-            <a href="#" class="d-inline-flex justify-content-center border">
-            	<p>{{ $zone->nom }}</p>
-            </a>
-        </div>
-        </div>
+			<a href="#" class="d-inline-flex justify-content-center mt-2">
+				<div class="card bg-light">
+					<div class="card-body">
+						<p>{{ $zone->nom }}</p>
+					</div>
+				</div>
+			</a>
         @endforeach
-
+        
 	</div>
 
 @endsection
