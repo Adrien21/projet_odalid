@@ -43,24 +43,24 @@ class EditController extends Controller
     // Redirection gestion portes dans infrastructure
     public function portes($n) {
         $porte = Porte::where('id', $n)->first();
-        return view('portesEdit')->with('porte', $porte);;
+        return view('portesEdit')->with('porte', $porte);
     }
 
     // Redirection gestion salles dans infrastructure
     public function salles($n) {
         $salle = Salle::where('id', $n)->first();
-        return view('sallesEdit')->with('salle', $salle);;
+        return view('sallesEdit')->with('salle', $salle);
     }
 
     // Redirection gestion gaches dans infrastructure
     public function gaches($n) {
         $gache = Gache::where('id', $n)->first();
-        return view('gachesEdit')->with('gache', $gache);;
+        return view('gachesEdit')->with('gache', $gache);
     }
 
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs($n) {
         $lecteur = Lecteur::where('id', $n)->first();
-        return view('lecteursEdit')->with('lecteur', $lecteur);;
+        return view('lecteursEdit')->with('lecteur', $lecteur);
     }
 }
