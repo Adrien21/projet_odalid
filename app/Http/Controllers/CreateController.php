@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Badge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\BadgeRequest;
 
 class CreateController extends Controller
@@ -21,7 +22,8 @@ class CreateController extends Controller
     // Redirection vers badges
     public function badges(BadgeRequest $req) {
         $requete = Badge::create($req->all());
-        //return redirect()->route('BadgesEdit', ['n' => $n]);
+        $n = DB::getPdo()->lastInsertId();
+        return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
     // Redirection utilisateurs
