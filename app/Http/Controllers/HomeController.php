@@ -69,7 +69,7 @@ class HomeController extends Controller
                             ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
                             ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
                             ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
-                            ->paginate(50);
+                            ->paginate(25);
 
 
 
