@@ -32,6 +32,9 @@ Route::post('/badges/create', 'CreateController@badges');
 // route pour editer un badge et le sauvegarder dans la bdd
 Route::get('/badges/edit/{n?}', 'EditController@badges')->where('n', '[0-9]+')->name('BadgesEdit');
 Route::post('/badges/edit/{n?}', 'UpdateController@badges')->where('n', '[0-9]+')->name('BadgesUpdate');
+// route pour la suppression d'un badge dans la bdd
+Route::get('/badges/delete/{n?}', 'DeleteController@badges')->where('n', '[0-9]+')->name('BadgesDelete');
+
 
 // Routes partie zones
 Route::get('/infrastructure/zones', 'HomeController@zones')->name('Zones');

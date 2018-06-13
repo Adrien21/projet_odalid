@@ -18,4 +18,7 @@
     {{ csrf_field() }}
     <input type="submit" value="Valider">
 </form>
+
+<p>@yield('delete')</p>
+
 @endsection
