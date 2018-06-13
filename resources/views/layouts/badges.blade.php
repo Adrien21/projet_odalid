@@ -9,6 +9,10 @@
     <p>
         <label for="nom">Nom* : </label>
         <input type="text" id="nom" name="nom" value="@yield('nom')">
+        <label for="email">Email* : </label>
+        <input type="email" id="email" name="email" value="@yield('email')">
+        <label for="dateDeValidite">dateDeValidite* : </label>
+        <input type="date" id="dateDeValidite" name="dateDeValidite" value="@yield('dateDeValidite')">
     </p>
 
     {{ csrf_field() }}
