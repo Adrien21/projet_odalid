@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Badge;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -24,8 +25,9 @@ class EditController extends Controller
     }
 
     // Redirection vers badges
-    public function badges() {
-        return view('badgesEdit');
+    public function badges($n) {
+        $badge = Badge::where('id', $n)->first();
+        return view('badgesEdit')->with('badge', $badge);
     }
 
     // Redirection utilisateurs
