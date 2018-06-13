@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Badge;
 use Illuminate\Http\Request;
 
-class EditController extends Controller
+class UpdateController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -52,5 +51,4 @@ class EditController extends Controller
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs() {
         return view('lecteursEdit');
-    }
-}
+    }}
