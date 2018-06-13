@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Badge;
 use Illuminate\Http\Request;
+use App\Http\Requests\BadgeRequest;
 
 class UpdateController extends Controller
 {
@@ -17,9 +19,9 @@ class UpdateController extends Controller
      */
 
     // Redirection vers badges
-    public function badges($n) {
-        $badge = Badge::where('id', $n)->first();
-        return view('badgesEdit')->with('badge', $badge);
+    public function badges($n, BadgeRequest $req) {
+        $requete = Badge::find($n)->update(['nom' => $req->nom]);
+        return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
     // Redirection utilisateurs
