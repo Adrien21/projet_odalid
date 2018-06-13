@@ -79,7 +79,7 @@ class HomeController extends Controller
     // Redirection gestion zones dans infrastructure
     public function zones() {
         $zones = DB::table('od_zone')
-                               ->select('od_zone.id','od_zone.nom')
+                               ->select('od_zone.*')
                                ->get();
 
         return view('zonesHome', ['zones' => $zones]);
@@ -87,7 +87,11 @@ class HomeController extends Controller
 
     // Redirection gestion portes dans infrastructure
     public function portes() {
-        return view('portesHome');
+        $portes = DB::table('od_porte')
+                               ->select('od_porte.*')
+                               ->get();
+
+        return view('portesHome', ['portes' => $portes]);
     }
 
     // Redirection gestion relais dans infrastructure
@@ -97,11 +101,19 @@ class HomeController extends Controller
 
     // Redirection gestion gaches dans infrastructure
     public function gaches() {
-        return view('gachesHome');
+        $gaches = DB::table('od_gache')
+                               ->select('od_gache.*')
+                               ->get();
+
+        return view('gachesHome', ['gaches' => $gaches]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs() {
-        return view('lecteursHome');
+        $lecteurs = DB::table('od_lecteur')
+                               ->select('od_lecteur.*')
+                               ->get();
+
+        return view('lecteursHome', ['lecteurs' => $lecteurs]);
     }
 }
