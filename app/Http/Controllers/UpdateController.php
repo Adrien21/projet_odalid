@@ -42,31 +42,31 @@ class UpdateController extends Controller
 
     // Redirection gestion zones dans infrastructure
     public function zones($n, ZoneRequest $req) {
-        $requete = Zone::find($n)->update(['nom' => $req->nom]);
+        $requete = Zone::find($n)->update($req->all());
         return redirect()->route('ZonesEdit', ['n' => $n]);
     }
 
     // Redirection gestion portes dans infrastructure
     public function portes($n, ZoneRequest $req) {
         $requete = Porte::find($n)->update(['nom' => $req->nom]);
-        return view('portesEdit', ['n' => $n]);
+        return redirect()->route('PortesEdit', ['n' => $n]);
     }
 
     // Redirection gestion salles dans infrastructure
     public function salles($n, ZoneRequest $req) {
         $requete = Salle::find($n)->update(['nom' => $req->nom]);
-        return view('sallesEdit', ['n' => $n]);
+        return redirect()->route('SallesEdit', ['n' => $n]);
     }
 
     // Redirection gestion gaches dans infrastructure
     public function gaches($n, ZoneRequest $req) {
         $requete = Gache::find($n)->update(['nom' => $req->nom]);
-        return view('gachesEdit', ['n' => $n]);
+        return redirect()->route('GâchesEdit', ['n' => $n]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs($n, ZoneRequest $req) {
         $requete = Lecteur::find($n)->update(['nom' => $req->nom]);
-        return view('lecteursEdit', ['n' => $n]);
+        return redirect()->route('LecteursEdit', ['n' => $n]);
     }
 }
