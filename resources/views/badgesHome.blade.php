@@ -3,7 +3,8 @@
 @section('titre', 'Badges')
 
 @section('content')
-  <h1 class="text-center">Accueil badges</h1>
+  <h1 class="text-center">Badges</h1>
+  <a href="{{ route('BadgesNew') }}">+</a>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -23,7 +24,7 @@
 
         @foreach ($badges as $badge)
             <tr>
-              <th scope='row'>{{ $badge->id }}</th>
+                <th scope='row'><a href="{{ route('BadgesEdit', ['n' => $badge->id]) }}">{{ $badge->id }}</a></th>
               <td>{{ $badge->nom }}</td>
               <td>{{ $badge->prenom }}</td>
               <td>{{ $badge->sexe }}</td>
