@@ -20,7 +20,7 @@ class UpdateController extends Controller
 
     // Redirection vers badges
     public function badges($n, BadgeRequest $req) {
-        $requete = Badge::find($n)->update(['nom' => $req->nom]);
+        $requete = Badge::find($n)->update($req->all());
         return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
@@ -53,4 +53,5 @@ class UpdateController extends Controller
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs() {
         return view('lecteursEdit');
-    }}
+    }
+}
