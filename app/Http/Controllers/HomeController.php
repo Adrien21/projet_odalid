@@ -80,41 +80,35 @@ class HomeController extends Controller
 
     // Redirection gestion zones dans infrastructure
     public function zones() {
-        $zones = DB::table('od_zone')
-                               ->select('od_zone.*')
-                               ->get();
+        $zones = DB::table('od_zone')->get();
 
         return view('zonesHome', ['zones' => $zones]);
     }
 
     // Redirection gestion portes dans infrastructure
     public function portes() {
-        $portes = DB::table('od_porte')
-                               ->select('od_porte.*')
-                               ->get();
+        $portes = DB::table('od_porte')->get();
 
         return view('portesHome', ['portes' => $portes]);
     }
 
-    // Redirection gestion relais dans infrastructure
-    public function relais() {
-        return view('relaisHome');
+    // Redirection gestion salles dans infrastructure
+    public function salles() {
+        $salles = DB::table('od_salle')->get();
+
+        return view('sallesHome', ['salles' => $salles]);
     }
 
     // Redirection gestion gaches dans infrastructure
     public function gaches() {
-        $gaches = DB::table('od_gache')
-                               ->select('od_gache.*')
-                               ->get();
+        $gaches = DB::table('od_gache')->get();
 
         return view('gachesHome', ['gaches' => $gaches]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs() {
-        $lecteurs = DB::table('od_lecteur')
-                               ->select('od_lecteur.*')
-                               ->get();
+        $lecteurs = DB::table('od_lecteur')->get();
 
         return view('lecteursHome', ['lecteurs' => $lecteurs]);
     }
