@@ -25,8 +25,8 @@ Route::get('/utilisateurs', 'HomeController@utilisateurs')->name('Utilisateurs')
 Route::get('/historique', 'HomeController@historique')->name('Historique');
 
 Route::get('/badges', 'HomeController@badges')->name('Badges');
-Route::get('/badges/edit{n?}', 'EditController@badges')->where('n', '[0-9]+')->name('BadgesEdit');
-Route::post('/badges/edit{n?}', 'UpdateController@badges')->where('n', '[0-9]+')->name('BadgesUpdate');
+Route::get('/badges/edit/{n?}', 'EditController@badges')->where('n', '[0-9]+')->name('BadgesEdit');
+Route::post('/badges/edit/{n?}', 'UpdateController@badges')->where('n', '[0-9]+')->name('BadgesUpdate');
 
 Route::get('/infrastructure/zones', 'HomeController@zones')->name('Zones');
 Route::get('/infrastructure/portes', 'HomeController@portes')->name('Portes');
