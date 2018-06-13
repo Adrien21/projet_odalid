@@ -52,7 +52,8 @@ class HomeController extends Controller
 
     // Redirection utilisateurs
     public function utilisateurs() {
-        return view('utilisateursHome');
+        $users = User::get();
+        return view('utilisateursHome')->with('users', $users);
     }
 
     // Redirection vers l'historique
@@ -63,17 +64,17 @@ class HomeController extends Controller
 
         // !!! Vérifier les majuscules sur la bonne BDD !!!
 
-        // $historiques = DB::table('od_historique')
-        //                     ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
-        //                     ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
-        //                     ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
-        //                     ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
-        //                     ->select('od_salle.nom', 'od_porte.nom', 'od_historique.date', 'od_identite.nom', "od_identite.prenom")
-        //                     ->get()
-        //
+        $historiques = DB::table('od_historique')
+                            ->select('od_historique.id', 'od_identite.nom as identite_nom', 'od_historique.dateEvenement', 'od_porte.nom as porte_nom', 'od_historique.etatEvenement')
+                            ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
+                            ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
+                            ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
+                            ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
+                            ->paginate(25);
 
 
-        return view('historiqueHome'); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue historiqueHome.blade.php: ", ['historiques' => $historiques]"
+
+        return view('historiqueHome', ['historiques' => $historiques]); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue historiqueHome.blade.php: ", ['historiques' => $historiques]"
     }
 
     // Redirection gestion zones dans infrastructure
