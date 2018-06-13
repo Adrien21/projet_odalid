@@ -8,11 +8,11 @@
     <p>@yield('id')</p>
     <p>
         <label for="nom">Nom* : </label>
-        <input type="text" id="nom" name="nom" value="@yield('nom')">
+        <input type="text" id="nom" name="nom" value="@yield('nom')" required>
         <label for="email">Email* : </label>
-        <input type="email" id="email" name="email" value="@yield('email')">
+        <input type="email" id="email" name="email" value="@yield('email')" required>
         <label for="dateDeValidite">dateDeValidite* : </label>
-        <input type="date" id="dateDeValidite" name="dateDeValidite" value="@yield('dateDeValidite')">
+        <input type="date" id="dateDeValidite" name="dateDeValidite" value="@yield('dateDeValidite')" required>
     </p>
 
     {{ csrf_field() }}
