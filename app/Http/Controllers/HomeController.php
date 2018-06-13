@@ -25,6 +25,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        return view('home');
+    }
 
     // Redirection vers badges
     public function badges() {
