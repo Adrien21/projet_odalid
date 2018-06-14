@@ -39,11 +39,11 @@ Route::get('/badges/delete/{n?}', 'DeleteController@badges')->middleware('authCo
 // Routes partie zones
 Route::get('/infrastructure/zones', 'HomeController@zones')->middleware('authControl')->name('Zones');
 // Edition zones
+Route::get('/infrastructure/zones/edit/{n?}', 'EditController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesEdit');
+Route::post('/infrastructure/zones/edit/{n?}', 'UpdateController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesUpdate');
 // Création zones
 Route::get('/infrastructure/zones/create', function(){return view('zonesCreate');})->name('ZonesNew');
 Route::post('/infrastructure/zones/create', 'CreateController@zones');
-Route::get('/infrastructure/zones/edit/{n?}', 'EditController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesEdit');
-Route::post('/infrastructure/zones/edit/{n?}', 'UpdateController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesUpdate');
 
 // Routes partie portes
 Route::get('/infrastructure/portes', 'HomeController@portes')->middleware('authControl')->name('Portes');
