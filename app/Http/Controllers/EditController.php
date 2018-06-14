@@ -8,6 +8,7 @@ use App\Porte;
 use App\Salle;
 use App\Gache;
 use App\Lecteur;
+use App\Relais;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -43,13 +44,21 @@ class EditController extends Controller
     // Redirection gestion portes dans infrastructure
     public function portes($n) {
         $porte = Porte::where('id', $n)->first();
-        return view('portesEdit')->with('porte', $porte);
+        $salles = Salle::get();
+        $gaches = Gache::get();
+        $relais_entier = Relais::get();
+        return view('portesEdit')->with('porte', $porte)
+                                 ->with('salles', $salles)
+                                 ->with('relais_entier', $relais_entier)
+                                 ->with('gaches', $gaches);
     }
 
     // Redirection gestion salles dans infrastructure
     public function salles($n) {
         $salle = Salle::where('id', $n)->first();
-        return view('sallesEdit')->with('salle', $salle);
+        $zones = Zone::get();
+        return view('sallesEdit')->with('salle', $salle)
+                                 ->with('zones', $zones);
     }
 
     // Redirection gestion gaches dans infrastructure
@@ -63,6 +72,6 @@ class EditController extends Controller
         $lecteur = Lecteur::where('id', $n)->first();
         $portes = Porte::get();
         return view('lecteursEdit')->with('lecteur', $lecteur)
-                                    ->with('portes', $portes);
+                                   ->with('portes', $portes);
     }
 }

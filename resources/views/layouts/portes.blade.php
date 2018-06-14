@@ -10,9 +10,13 @@
         <label for="nom">Nom* : </label>
         <input type="text" id="nom" name="nom" value="@yield('nom')" required>
         <label for="salle_id">Salle* : </label>
-        <!-- Compléter avec <select> dynamique -->
+        <select id="salle_id" name="salle_id" required>
+            @yield('option_salle')
+        </select>
         <label for="relais_id">Relais* : </label>
-        <!-- Compléter avec <select> dynamique -->
+        <select id="relais_id" name="relais_id" required>
+            @yield('option_relais')
+        </select>
     </p>
 
     {{ csrf_field() }}

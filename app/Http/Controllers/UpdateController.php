@@ -15,6 +15,7 @@ use App\Http\Requests\PorteRequest;
 use App\Http\Requests\SalleRequest;
 use App\Http\Requests\GacheRequest;
 use App\Http\Requests\LecteurRequest;
+use App\Http\Requests\RelaisRequest;
 
 class UpdateController extends Controller
 {
