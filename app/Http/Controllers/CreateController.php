@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
+use App\Gache;
+use App\Lecteur;
+use App\Porte;
+use App\Relais;
+use App\Salle;
+use App\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\BadgeRequest;
+use App\Http\Requests\GacheRequest;
+use App\Http\Requests\LecteurRequest;
+use App\Http\Requests\PorteRequest;
+use App\Http\Requests\RelaisRequest;
+use App\Http\Requests\SalleRequest;
+use App\Http\Requests\ZoneRequest;
 
 class CreateController extends Controller
 {
@@ -33,8 +45,10 @@ class CreateController extends Controller
     }
 
     // Redirection gestion zones dans infrastructure
-    public function zones() {
-        return view('zonesEdit');
+    public function zones(ZoneRequest $req) {
+        $requete = Zone::create($req->all());
+        $n = DB::getPdo()->lastInsertId();
+        return redirect()->route('ZonesEdit', ['n' => $n]);
     }
 
     // Redirection gestion portes dans infrastructure
@@ -42,9 +56,11 @@ class CreateController extends Controller
         return view('portesEdit');
     }
 
-    // Redirection gestion relais dans infrastructure
-    public function relais() {
-        return view('relaisEdit');
+    // Redirection gestion salles dans infrastructure
+    public function salles(SalleRequest $req) {
+        $requete = Salle::create($req->all());
+        $n = DB::getPdo()->lastInsertId();
+        return redirect()->route('SallesEdit', ['n' => $n]);
     }
 
     // Redirection gestion gaches dans infrastructure

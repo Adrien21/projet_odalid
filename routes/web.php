@@ -39,6 +39,9 @@ Route::get('/badges/delete/{n?}', 'DeleteController@badges')->middleware('authCo
 // Routes partie zones
 Route::get('/infrastructure/zones', 'HomeController@zones')->middleware('authControl')->name('Zones');
 // Edition zones
+// Création zones
+Route::get('/infrastructure/zones/create', function(){return view('zonesCreate');})->name('ZonesNew');
+Route::post('/infrastructure/zones/create', 'CreateController@zones');
 Route::get('/infrastructure/zones/edit/{n?}', 'EditController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesEdit');
 Route::post('/infrastructure/zones/edit/{n?}', 'UpdateController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesUpdate');
 
@@ -53,6 +56,9 @@ Route::get('/infrastructure/salles', 'HomeController@salles')->middleware('authC
 // Edition salles
 Route::get('/infrastructure/salles/edit/{n?}', 'EditController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesEdit');
 Route::post('/infrastructure/salles/edit/{n?}', 'UpdateController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesUpdate');
+// Création salles
+Route::get('/infrastructure/salles/create', function(){return view('sallesCreate');})->name('SallesNew');
+Route::post('/infrastructure/salles/create', 'CreateController@salles');
 
 // Routes partie gaches
 Route::get('/infrastructure/gaches', 'HomeController@gaches')->middleware('authControl')->name('Gâches');
