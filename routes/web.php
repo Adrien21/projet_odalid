@@ -57,7 +57,7 @@ Route::get('/infrastructure/salles', 'HomeController@salles')->middleware('authC
 Route::get('/infrastructure/salles/edit/{n?}', 'EditController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesEdit');
 Route::post('/infrastructure/salles/edit/{n?}', 'UpdateController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesUpdate');
 // Création salles
-Route::get('/infrastructure/salles/create', function(){return view('sallesCreate');})->name('SallesNew');
+Route::get('/infrastructure/salles/create', 'EditController@salleNew')->name('SallesNew');
 Route::post('/infrastructure/salles/create', 'CreateController@salles');
 
 // Routes partie gaches
@@ -65,6 +65,9 @@ Route::get('/infrastructure/gaches', 'HomeController@gaches')->middleware('authC
 // Edition gaches
 Route::get('/infrastructure/gaches/edit/{n?}', 'EditController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesEdit');
 Route::post('/infrastructure/gaches/edit/{n?}', 'UpdateController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesUpdate');
+// Création gaches
+Route::get('/infrastructure/gaches/create', function(){return view('gachesCreate');})->name('ZonesNew');
+Route::post('/infrastructure/gaches/create', 'CreateController@gaches');
 
 // Routes partie lecteurs
 Route::get('/infrastructure/lecteurs', 'HomeController@lecteurs')->middleware('authControl')->name('Lecteurs');
