@@ -54,13 +54,19 @@ class HomeController extends Controller
     }
 
     // Redirection vers l'historique
-    public function historique(Request $search) {
+    public function historique(Request $req) {
+        //on verifie si on a a faire a une requete ajax
+        if($req->ajax()){
+            $search = '%'.$req->recherche.'%';
+        }
+        else {
+            $search = '%%';
+        }
         // Requête NORMALEMENT fonctionnelle pour récupérer l'historique
         // A tester avec le bon squelette de BDD
         // Résultat attendu : "nom de la salle - nom de la porte - date dans l'historique - nom de la personne - prenom de la personne"
 
         // !!! Vérifier les majuscules sur la bonne BDD !!!
-        $search = '%'.$search->search.'%';
         $historiques = DB::table('od_historique')
                             ->select('od_historique.id', 'od_identite.nom as identite_nom', 'od_historique.dateEvenement', 'od_porte.nom as porte_nom', 'od_historique.etatEvenement')
                             ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
@@ -69,10 +75,15 @@ class HomeController extends Controller
                             ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
                             ->where('od_identite.nom','like', $search)
                             ->paginate(25);
-
-
-
-        return view('historiqueHome', ['historiques' => $historiques]); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue historiqueHome.blade.php: ", ['historiques' => $historiques]"
+        //on verifie si on a a faire a une requete ajax
+        if($req->ajax()) {
+            //si ajax, retourne la vue qui met a jour le tableau des resultats + barre de pagination
+            return view('historiqueLoad', ['historiques' => $historiques])->render();
+        }
+        else {
+            //sinon on retourne toute la page
+            return view('historiqueHome', ['historiques' => $historiques]); // Ajouter cette partie dans la parenthèse pour récupérer le résultat de la requête dans la vue historiqueHome.blade.php: ", ['historiques' => $historiques]"
+        }
     }
 
     // Redirection gestion zones dans infrastructure
