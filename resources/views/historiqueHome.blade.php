@@ -26,3 +26,7 @@
   </table>
 
 @endsection
+
+@section('scripts')
+  <script src="{{ asset('js/search_script.js') }}"></script>
+@endsection

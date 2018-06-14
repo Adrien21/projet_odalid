@@ -96,6 +96,6 @@
         </main>
     </div>
     <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-    <script src="{{ asset('js/search_script.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>
