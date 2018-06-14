@@ -16,11 +16,13 @@ class AuthControlMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->roles == 'superadmin') {
-            return $next($request);
+        switch(Auth::user()->roles) {
+            case 'superadmin':
+                return $next($request);
+            case 'admin':
+                //autoriser tout sauf modif mot de passe superadmin
         }
-        else {
-            return redirect()->route('Accueil');
-        }
+        //return dd($request->path());
+        return redirect()->route('Accueil');
     }
 }
