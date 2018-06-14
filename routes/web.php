@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/', 'Auth\LoginController@authenticate')->name('login2');
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('Accueil');
@@ -43,7 +45,8 @@ Route::get('/infrastructure/zones/edit/{n?}', 'EditController@zones')->middlewar
 Route::post('/infrastructure/zones/edit/{n?}', 'UpdateController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesUpdate');
 // Création zones
 Route::get('/infrastructure/zones/create', function(){return view('zonesCreate');})->name('ZonesNew');
-Route::post('/infrastructure/zones/create', 'CreateController@zones');
+Route::post('/infrastructure/zones/create', 'CreateController@zones')
+;
 
 // Routes partie portes
 Route::get('/infrastructure/portes', 'HomeController@portes')->middleware('authControl')->name('Portes');
