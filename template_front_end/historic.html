@@ -25,6 +25,9 @@
       height: 100%;
     }
 
+  .carte {
+    margin-top: 10vh;
+  }
     @media (max-width: 740px) {
       html,
       body,
@@ -135,7 +138,7 @@
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
 
       <!-- Content -->
-      <div class="container">
+      <div class="container-fluid">
 
         <!--Grid row-->
         <div class="row wow fadeIn">
@@ -145,87 +148,72 @@
           <!--Grid column-->
 
           <!--Grid column-->
-          <div class="col-md-12 col-xl-10 mb-4 mx-auto">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
-
+          <div class="col-md-12 col-xl-10 mb-4 mx-auto carte">
+          <p style="color: white; ">Date début: <input type="text" id="datepicker"></p><p style="color: white; ">Date fin : <input type="text" id="datepicker2"></p>
             <!--Card-->
             <div class="card">
-
+              <div class="md-form">
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              </div>
               <!--Card content-->
               <div class="card-body">
 
                 <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Date Evenement</th>
+                      <th scope="col">Porte</th>
+                      <th scope="col">Etat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><a class="blue-text">Mark</a></td>
+                      <td>2017-08-24 14:51:38</td>
+                      <td>Porte de test 1</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><a class="blue-text">Jacob</a></td>
+                      <td>2017-08-24 14:51:38</td>
+                      <td>Porte de test 1</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><a class="blue-text">Larry</a></td>
+                      <td>2017-08-24 14:51:38</td>
+                      <td>Porte de test 1</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><a class="blue-text">Mark</a></td>
+                      <td>2017-08-24 14:51:38</td>
+                      <td>Porte de test 1</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><a class="blue-text">Jacob</a></td>
+                      <td>2017-08-24 14:51:38</td>
+                      <td>Porte de test 1</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-          <table class="table">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
 
               </div>
 
             </div>
             <!--/.Card-->
-            <!-- Button trigger modal -->
 
 
-<!-- Modal -->
 
           </div>
           <!--Grid column-->
@@ -254,10 +242,17 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <!-- Initializations -->
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
+    $( function() {
+  $( "#datepicker" ).datepicker();
+} );
+$( function() {
+$( "#datepicker2" ).datepicker();
+} );
   </script>
 </body>
 
