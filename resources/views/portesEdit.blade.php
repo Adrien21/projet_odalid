@@ -1,8 +1,6 @@
 @extends('layouts.portes')
 
 @section('titre', $porte->nom)
-
-@section('id', $porte->id)
 @section('nom', $porte->nom)
 
 @section('option_salle')
@@ -23,7 +21,13 @@
 				@if ($porte->relais_id === $relais->id)
 		    		<option value="{{ $relais->id }}" selected>{{ $relais->numero }}</option>
 		    	@else
-		    		<option value="{{ $relais->id }}">{{ $relais->numero }}</option>
+		    		@foreach ($relais_portes as $relais_prit)
+		    			@if ($relais_prit->relais_id === $relais->id)
+		    				<option value="{{ $relais_prit->relais_id }}" disabled>{{ $relais->numero }}</option>
+		    			@else
+		    				<option value="{{ $relais->id }}">{{ $relais->numero }}</option>
+		    			@endif
+		    		@endforeach
 		    	@endif
 		    @endforeach
 	    </optgroup>

@@ -47,10 +47,12 @@ class EditController extends Controller
         $salles = Salle::get();
         $gaches = Gache::get();
         $relais_entier = Relais::get();
+        $relais_portes = Porte::select('relais_id')->where('id', '!=', $n)->get();
         return view('portesEdit')->with('porte', $porte)
                                  ->with('salles', $salles)
                                  ->with('relais_entier', $relais_entier)
-                                 ->with('gaches', $gaches);
+                                 ->with('gaches', $gaches)
+                                 ->with('relais_portes', $relais_portes);
     }
 
     // Redirection gestion salles dans infrastructure
@@ -71,7 +73,9 @@ class EditController extends Controller
     public function lecteurs($n) {
         $lecteur = Lecteur::where('id', $n)->first();
         $portes = Porte::get();
+        $lecteur_portes = Lecteur::select('porte_id')->where('id', '!=', $n)->get();
         return view('lecteursEdit')->with('lecteur', $lecteur)
-                                   ->with('portes', $portes);
+                                   ->with('portes', $portes)
+                                   ->with('lecteur_portes', $lecteur_portes);
     }
 }

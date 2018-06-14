@@ -2,7 +2,6 @@
 
 @section('titre', $salle->nom)
 
-@section('id', $salle->id)
 @section('nom', $salle->nom)
 
 @section('option')
