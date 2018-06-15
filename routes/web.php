@@ -38,8 +38,8 @@ Route::post('/', 'Auth\LoginController@authenticate');
 
 Route::get('password/reset', 'Auth\ForgotPasswordController@showForm')->name('forgot.pass');
 Route::post('password/reset', 'Auth\ForgotPasswordController@sendPasswordResetToken')->name('reset.pass');
-Route::get('password/{token?}', 'Auth\ForgotPasswordController@showPasswordResetForm');
-Route::post('password/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
+Route::get('reset/{token?}', 'Auth\ForgotPasswordController@showPasswordResetForm');
+Route::post('reset/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
 
 Route::get('/', 'HomeController@index')->name('Accueil');
 
