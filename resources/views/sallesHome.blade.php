@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-center">Gestion des salles</h1>
-  <a href="salles/create"><button>Nouvelle salle</button></a>
+  <a href="{{ route('SallesNew') }}"><button>Nouvelle salle</button></a>
 
 	<div class="col-8 offset-2">
 

@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-center">Gestion des lecteurs</h1>
-  <a href="lecteurs/create"><button>Nouveau lecteur</button></a>
+  <a href="{{ route('LecteursNew') }}"><button>Nouveau lecteur</button></a>
 
 	<div class="col-8 offset-2">
 

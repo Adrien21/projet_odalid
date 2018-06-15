@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-center">Gestion des gaches</h1>
-  <a href="gaches/create"><button>Nouvelle gâche</button></a>
+  <a href="{{ route('GâchesNew') }}"><button>Nouvelle gâche</button></a>
 	<div class="col-8 offset-2">
 
 		@foreach ($gaches as $gache)

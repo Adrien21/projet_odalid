@@ -23,5 +23,5 @@
         <input type="submit" value="Valider">
     </form>
     <br/><br/><br/>
-    <a href="/infrastructure/portes"><button>Retour</button></a>
+    <a href="{{ route('Portes') }}"><button>Retour</button></a>
 @endsection

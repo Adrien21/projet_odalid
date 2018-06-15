@@ -99,7 +99,7 @@ Route::get('/infrastructure/gaches', 'HomeController@gaches')->middleware('authC
 Route::get('/infrastructure/gaches/edit/{n?}', 'EditController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesEdit');
 Route::post('/infrastructure/gaches/edit/{n?}', 'UpdateController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesUpdate');
 // Création gaches
-Route::get('/infrastructure/gaches/create', function(){return view('gachesCreate');})->name('ZonesNew');
+Route::get('/infrastructure/gaches/create', function(){return view('gachesCreate');})->name('GâchesNew');
 Route::post('/infrastructure/gaches/create', 'CreateController@gaches');
 
 // Routes partie lecteurs

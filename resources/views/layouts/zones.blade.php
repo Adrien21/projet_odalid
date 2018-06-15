@@ -14,5 +14,5 @@
 	    <input type="submit" value="Valider">
 	</form>
     <br/><br/><br/>
-  	<a href="/infrastructure/zones"><button>Retour</button></a>
+  	<a href="{{ route('Zones') }}"><button>Retour</button></a>
 @endsection
