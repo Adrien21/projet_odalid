@@ -103,7 +103,7 @@ class ForgotPasswordController extends Controller
 
             // si le lien a moins de 30 min
             if (($date_jour - $date_demande) < 1800) {
-                return dd($date_jour - $date_demande);
+                //return dd($date_jour - $date_demande);
 
                 $user->password = Hash::make($password);
                 $user->update(); //or $user->save();
