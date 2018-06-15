@@ -7,4 +7,4 @@
               <td>{{ $historique->etatEvenement }}</td>
           </tr>
       @endforeach
-      <tr><th colspan="5">{{ $historiques->links() }}</th></tr>
+      <!-- <tr><th colspan="5">{{ $historiques->links() }}</th></tr> -->

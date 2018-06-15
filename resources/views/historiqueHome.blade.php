@@ -5,15 +5,11 @@
 @section('content')
 
 <div class="espace" style="height:15vh;"></div>
-<div class="card mx-auto " style="width: 80vw;">
-  <div class="card-body">
+<div class="card mx-auto wow fadeIn" style="width: 80vw;">
+  <div class="card-body" style=" overflow: auto; height:70vh;">
 
       <h1 class="text-center">Accueil historique</h1>
 
-          <p>
-            {{ csrf_field() }}
-            <input type="text" id="search" name="recherche" placeholder="Rechercher un nom" value="">
-          </p>
 
       <table class="table table-striped">
         <thead>
@@ -30,7 +26,15 @@
         </tbody>
       </table>
     </div>
-  </div>  
+    <p class="m-2">
+      {{ csrf_field() }}
+      <input type="text" id="search" name="recherche" placeholder="Rechercher un nom" value="">
+    </p>
+    <!-- COrriger bug navigation > mettre le for each dans la mm page-->
+    <div class="mx-auto"><tr><th colspan="5">{{ $historiques->links() }}</th></tr>
+
+    </div>
+  </div>
 @endsection
 
 @section('scripts')
