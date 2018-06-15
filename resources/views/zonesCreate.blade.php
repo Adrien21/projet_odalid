@@ -1,3 +1,3 @@
 @extends('layouts.zones')
 
-@section('titre', 'Nouveau')
+@section('titre', 'Nouvelle')

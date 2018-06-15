@@ -98,7 +98,7 @@
 <body>
     <div id="app">
         @section('header')
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark primary-color scrolling-navb">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo darken-4 scrolling-navb">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'DEFAUT') }}
@@ -179,7 +179,7 @@
             </nav>
         @show
 
-        <main class="py-0">
+        <main class="py-0" style="background-image: url('img/fond1f.jpg'); background-repeat: no-repeat; background-size: cover; height: 100vh;" >
             @yield('content')
         </main>
     </div>

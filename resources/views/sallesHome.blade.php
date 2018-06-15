@@ -3,6 +3,7 @@
 @section('titre', 'Salles')
 
 @section('content')
+
   <h1 class="text-center">Gestion des salles</h1>
 
 	<div class="col-8 offset-2">
@@ -16,7 +17,7 @@
 				</div>
 			</a>
         @endforeach
-        
+
 	</div>
 
 @endsection

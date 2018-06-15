@@ -1,7 +1,6 @@
 @extends('layouts.portes')
 
-@section('titre', $porte->nom)
-@section('nom', $porte->nom)
+@section('titre', 'Nouvelle')
 
 <!-- Affichage de toutes les salles -->
 @section('option_salle')
