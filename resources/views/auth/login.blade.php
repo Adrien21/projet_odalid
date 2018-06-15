@@ -51,7 +51,7 @@
 
                 <!-- Form -->
                 <!-- Material form register -->
-                  <form method="POST" action="{{ route('login2') }}">
+                  <form method="POST" action="{{ route('login') }}">
                      @csrf
                       <p class="h4 text-center mb-4">Se connecter</p>
 
