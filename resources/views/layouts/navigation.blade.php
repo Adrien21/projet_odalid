@@ -13,14 +13,12 @@
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <style type="text/css">
-
     html,
     body,
     header,
     .view {
     height: 80%;
     }
-
     @media (max-width: 740px) {
     html,
     body,
@@ -29,7 +27,6 @@
       height: 100px;
     }
     }
-
     @media (min-width: 800px) and (max-width: 850px) {
     html,
     body,
@@ -50,10 +47,8 @@
     width: 60px;
     height: 34px;
     }
-
     /* Hide default HTML checkbox */
     .switch input {display:none;}
-
     /* The slider */
     .slider {
     position: absolute;
@@ -66,7 +61,6 @@
     -webkit-transition: .4s;
     transition: .4s;
     }
-
     .slider:before {
     position: absolute;
     content: "";
@@ -78,15 +72,12 @@
     -webkit-transition: .4s;
     transition: .4s;
     }
-
     input:checked + .slider {
     background-color: #2196F3;
     }
-
     input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
     }
-
     input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -107,7 +98,7 @@
 <body>
     <div id="app">
         @section('header')
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel primary-color">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark primary-color scrolling-navb">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'DEFAUT') }}
@@ -120,24 +111,35 @@
                         @guest
                         @else
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav m-auto dropright">
-                            <div class="list-group d-inline-flex flex-wrap flex-row justify-content-between text-center">
-                                <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
-
-                                <a href="/badges" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Badges</a>
-
-                                <a href="/historique" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Historique</a>
-
-                                <a href="#" class="dropdown-toggle list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu_infrastructure">Infrastructure</a>
-                                <!-- Dropdown d'infrastructure -->
-                                <div class="dropdown-menu bg-light" aria-labelledby="menu_infrastructure">
-                                    <a href="/infrastructure/zones" class="dropdown-item">Zones</a>
-                                    <a href="/infrastructure/portes" class="dropdown-item">Portes</a>
-                                    <a href="/infrastructure/salles" class="dropdown-item">Salles</a>
-                                    <a href="/infrastructure/gaches" class="dropdown-item">Gâches</a>
-                                    <a href="/infrastructure/lecteurs" class="dropdown-item">Lecteurs</a>
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="/"><i class="fa fa-tachometer" aria-hidden="true"></i>Tableau de bord
+                              <span class="sr-only">(current)</span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/utilisateurs"><i class="fa fa-user" aria-hidden="true"></i>Utilisateurs</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/badges"><i class="fa fa-id-card" aria-hidden="true"></i>Badges</a>
+                          </li>
+                          <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-building" aria-hiddénite="true"></i>Infrastructure</a></a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="infrastructure/zones">Zones</a>
+                                    <a class="dropdown-item" href="infrastructure/salles">Salles</a>
+                                    <a class="dropdown-item" href="infrastructure/portes">Portes</a>
+                                    <a class="dropdown-item" href="infrastructure/lecteurs">Lecteurs</a>
+                                    <a class="dropdown-item" href="infrastructure/gaches">Gaches</a>
                                 </div>
-                            </div>
+                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/historique"><i class="fa fa-clock-o" aria-hidden="true"></i></i>Historique</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="" ><i class="fa fa-cog" aria-hidden="true"></i>Systeme</a>
+                          </li>
                         </ul>
                         @endguest
                         <!-- Right Side Of Navbar -->
