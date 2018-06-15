@@ -4,6 +4,7 @@
 
 @section('content')
   <h1 class="text-center">Gestion des portes</h1>
+  <a href="portes/create"><button>Nouvelle porte</button></a>
 
 	<div class="col-8 offset-2">
 
