@@ -33,7 +33,7 @@
                    Notre métier : « vous faire profiter et vous doter des équipements d’identification les plus innovants basés sur la RFID »</strong>
             </p>
 
-            <a target="_blank" href="http://odalid.com/fr" class="btn btn-primary btn-lg"> Notre Site Web
+            <a target="_blank" href="http://odalid.com/fr" class="btn indigo darken-4 btn-lg"> Notre Site Web
               <i class="fa fa-globe" aria-hidden="true"></i>
             </a>
 
@@ -76,7 +76,7 @@
                       </label><p class="text-right">Rester connecté</p>
 
                       <div class="text-center mt-4">
-                          <button class="btn btn-primary" type="submit">Valider</button> <br><br>
+                          <button class="btn indigo darken-4" type="submit">Valider</button> <br><br>
                           <a href="{{ route('forgot.pass') }}"><p class="font-weight-bold text-right">Mot de passe oublié?</p></a>
                       </div>
                   </form>
