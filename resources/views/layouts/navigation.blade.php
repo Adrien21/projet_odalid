@@ -13,14 +13,12 @@
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <style type="text/css">
-
     html,
     body,
     header,
     .view {
     height: 80%;
     }
-
     @media (max-width: 740px) {
     html,
     body,
@@ -29,7 +27,6 @@
       height: 100px;
     }
     }
-
     @media (min-width: 800px) and (max-width: 850px) {
     html,
     body,
@@ -50,10 +47,8 @@
     width: 60px;
     height: 34px;
     }
-
     /* Hide default HTML checkbox */
     .switch input {display:none;}
-
     /* The slider */
     .slider {
     position: absolute;
@@ -66,7 +61,6 @@
     -webkit-transition: .4s;
     transition: .4s;
     }
-
     .slider:before {
     position: absolute;
     content: "";
@@ -78,15 +72,12 @@
     -webkit-transition: .4s;
     transition: .4s;
     }
-
     input:checked + .slider {
     background-color: #2196F3;
     }
-
     input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
     }
-
     input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -107,7 +98,7 @@
 <body>
     <div id="app">
         @section('header')
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel primary-color">
+            <nav class="navbar navbar-expand-md navbar-light primary-color scrolling-navbar">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'DEFAUT') }}
@@ -120,7 +111,7 @@
                         @guest
                         @else
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav m-auto dropright">
+                        <ul class="navbar-nav mr-auto dropright">
                             <div class="list-group d-inline-flex flex-wrap flex-row justify-content-between text-center">
                                 <a href="/utilisateurs" class="list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw">Utilisateurs</a>
 
@@ -130,6 +121,7 @@
 
                                 <a href="#" class="dropdown-toggle list-group-item list-group-item-action list-group-item-primary p-1" style="width: 15vw" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu_infrastructure">Infrastructure</a>
                                 <!-- Dropdown d'infrastructure -->
+
                                 <div class="dropdown-menu bg-light" aria-labelledby="menu_infrastructure">
                                     <a href="/infrastructure/zones" class="dropdown-item">Zones</a>
                                     <a href="/infrastructure/portes" class="dropdown-item">Portes</a>
