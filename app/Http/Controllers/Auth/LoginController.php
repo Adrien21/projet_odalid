@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -45,6 +46,12 @@ class LoginController extends Controller
 //return dd($request->only('email'));
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->only('password')['password'], 'enabled' => 1])) {
             // Authentication passed...
+        $date_jour = Carbon::now();
+
+        $user = User::where('username', Auth::user()->username)->update(['last_login' => $date_jour->toDateString()]);;
+
+        //$date_jour->toDateString();
+return dd($date_jour->toDateString());
             return redirect()->intended('dashboard');
         }
         else{
