@@ -77,7 +77,7 @@
 
                       <div class="text-center mt-4">
                           <button class="btn btn-primary" type="submit">Valider</button> <br><br>
-                          <a href="email.html"><p class="font-weight-bold text-right">Mot de passe oublié?</p></a>
+                          <a href="password/reset2"><p class="font-weight-bold text-right">Mot de passe oublié?</p></a>
                       </div>
                   </form>
 <!-- Material form register -->
