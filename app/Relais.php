@@ -11,6 +11,6 @@ class Relais extends Model
     protected $table = 'od_relais';
 
     protected $fillable = [
-        'gache_id', 'delaiOuverture', 'commandeManuelle',
+        'gache_id', 'numero', 'delaiOuverture', 'commandeManuelle',
     ];
 }

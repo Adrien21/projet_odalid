@@ -43,24 +43,31 @@ class EditController extends Controller
 
     // Redirection gestion portes dans infrastructure
     public function portes($n) {
+        // Sélection du nécessaire pour la boucle dans portesEdit.blade.php
         $porte = Porte::where('id', $n)->first();
         $salles = Salle::get();
         $gaches = Gache::get();
-        $relais_entier = Relais::get();
+        $relais = Relais::get();
         $relais_portes = Porte::select('relais_id')->where('id', '!=', $n)->get();
         return view('portesEdit')->with('porte', $porte)
                                  ->with('salles', $salles)
-                                 ->with('relais_entier', $relais_entier)
+                                 ->with('relais', $relais)
                                  ->with('gaches', $gaches)
                                  ->with('relais_portes', $relais_portes);
     }
 
     // Redirection gestion salles dans infrastructure
+    // -> Edition salle
     public function salles($n) {
         $salle = Salle::where('id', $n)->first();
         $zones = Zone::get();
         return view('sallesEdit')->with('salle', $salle)
                                  ->with('zones', $zones);
+    }
+    // -> Création salle
+    public function salleNew() {
+        $zones = Zone::get();
+        return view('sallesCreate')->with('zones', $zones);
     }
 
     // Redirection gestion gaches dans infrastructure

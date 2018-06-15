@@ -64,8 +64,20 @@ class CreateController extends Controller
     }
 
     // Redirection gestion gaches dans infrastructure
-    public function gaches() {
-        return view('gachesEdit');
+    public function gaches(GacheRequest $req) {
+        $requete = Gache::create($req->all());
+        $n = DB::getPdo()->lastInsertId();
+
+        // Selon le type de gâche, nombre de voie en conséquence
+        if ($req->type === "prd4") {
+            $nbvoie = 4;
+        } else {
+            $nbvoie = 3;
+        }
+        for ($i = 1; $i <= $nbvoie; $i++) {
+            $relais = Relais::create(['gache_id' => $n, 'numero' => $i, 'delaiOuverture' => 0, 'commandeManuelle' => 0]);
+        }
+        return redirect()->route('GâchesEdit', ['n' => $n]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
