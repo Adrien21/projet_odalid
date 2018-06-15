@@ -13,9 +13,10 @@
             @yield('option_salle')
         </select>
         <label for="relais_id">Relais* : </label>
-        <select id="relais_id" name="relais_id" required>
+        <select id="relais_id" name="relais_id">
             @yield('option_relais')
         </select>
+        @yield('option_lecteur')
     </p>
 
     {{ csrf_field() }}

@@ -52,8 +52,13 @@ class CreateController extends Controller
     }
 
     // Redirection gestion portes dans infrastructure
-    public function portes() {
-        return view('portesEdit');
+    public function portes(PorteRequest $req) {
+        $requete = Porte::create(['nom' => $req->nom, 'salle_id' => $req->salle_id, 'relais_id' => $req->relais_id]);
+        $n = DB::getPdo()->lastInsertId();
+        if (isset($req->id_lecteur)) {
+            $requete2 = Lecteur::find($req->id_lecteur)->update(['porte_id' => $n]);
+        }
+        return redirect()->route('PortesEdit', ['n' => $n]);
     }
 
     // Redirection gestion salles dans infrastructure
