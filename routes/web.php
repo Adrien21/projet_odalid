@@ -35,8 +35,8 @@ Auth::routes();
 // routes pour le login + mdp oublié
 
 Route::post('/', 'Auth\LoginController@authenticate')->name('login2');
-Route::get('password/reset2', 'Auth\ForgotPasswordController@showForm')->name('forgot.pass');
-Route::post('password/reset2', 'Auth\ForgotPasswordController@sendPasswordResetToken')->name('reset.pass');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showForm')->name('forgot.pass');
+Route::post('password/reset', 'Auth\ForgotPasswordController@sendPasswordResetToken')->name('reset.pass');
 Route::get('reset/password/{token?}', 'Auth\ForgotPasswordController@showPasswordResetForm');
 Route::post('reset/password/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
 
