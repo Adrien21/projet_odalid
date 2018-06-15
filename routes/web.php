@@ -53,6 +53,9 @@ Route::get('/infrastructure/portes', 'HomeController@portes')->middleware('authC
 // Edition portes
 Route::get('/infrastructure/portes/edit/{n?}', 'EditController@portes')->middleware('authControl')->where('n', '[0-9]+')->name('PortesEdit');
 Route::post('/infrastructure/portes/edit/{n?}', 'UpdateController@portes')->middleware('authControl')->where('n', '[0-9]+')->name('PortesUpdate');
+// Création portes
+Route::get('/infrastructure/portes/create', 'EditController@porteNew')->name('PortesNew');
+Route::post('/infrastructure/portes/create', 'CreateController@portes');
 
 // Routes partie salles
 Route::get('/infrastructure/salles', 'HomeController@salles')->middleware('authControl')->name('Salles');
@@ -77,3 +80,6 @@ Route::get('/infrastructure/lecteurs', 'HomeController@lecteurs')->middleware('a
 // Edition lecteurs
 Route::get('/infrastructure/lecteurs/edit/{n?}', 'EditController@lecteurs')->middleware('authControl')->where('n', '[0-9]+')->name('LecteursEdit');
 Route::post('/infrastructure/lecteurs/edit/{n?}', 'UpdateController@lecteurs')->middleware('authControl')->where('n', '[0-9]+')->name('LecteursUpdate');
+// Création lecteurs
+Route::get('/infrastructure/lecteurs/create', 'EditController@lecteurNew')->name('LecteursNew');
+Route::post('/infrastructure/lecteurs/create', 'CreateController@lecteurs');

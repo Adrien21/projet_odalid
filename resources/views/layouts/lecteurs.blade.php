@@ -12,10 +12,7 @@
         <input type="text" id="mac" name="mac" value="@yield('mac')" required>
         <label for="nom">Nom* : </label>
         <input type="text" id="nom" name="nom" value="@yield('nom')" required>
-        <label for="porte_id">Porte* : </label>
-        <select id="porte_id" name="porte_id" required>
-            @yield('option')
-        </select>
+        @yield('option')
     </p>
 
     {{ csrf_field() }}
