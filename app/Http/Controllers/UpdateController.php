@@ -50,6 +50,12 @@ class UpdateController extends Controller
     // Redirection gestion portes dans infrastructure
     public function portes($n, ZoneRequest $req) {
         $requete = Porte::find($n)->update($req->all());
+        if (isset($req->id_lecteur)) {
+            $requete2 = Lecteur::where('porte_id', $n)->update(['porte_id' => null]);
+            $requete3 = Lecteur::find($req->id_lecteur)->update(['porte_id' => $n]);
+        } else {
+            $requete2 = Lecteur::where('porte_id', $n)->update(['porte_id' => null]);
+        }
         return redirect()->route('PortesEdit', ['n' => $n]);
     }
 

@@ -4,6 +4,7 @@
 
 @section('content')
 	<h1 class="text-center">Gestion des zones</h1>
+  	<a href="{{ route('ZonesNew') }}"><button>Nouvelle zone</button></a>
 
 	<div class="col-8 offset-2">
 

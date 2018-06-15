@@ -78,7 +78,8 @@ class ForgotPasswordController extends Controller
         $tokenData = DB::table('od_password_resets')
             ->where('token', $token)->first();
 
-        if ( !$tokenData ) return redirect()->to('home'); //redirect them anywhere you want if the token does not exist.
+       //si le token n'existe pas redirect accueil
+        if ( !$tokenData ) return redirect()->route('Accueil');
         return view('auth\passwords\reset')->with('token', $token);
     }
 
@@ -92,7 +93,7 @@ class ForgotPasswordController extends Controller
 
             $user = User::where('email', $tokenData->email)->first();
             // si l'utilisateur du token n'existe pas en base
-            if (!$user) return redirect()->to('Accueil');
+            if (!$user) return redirect()->route('Accueil');
 
             $password = $request->password;
             $date_jour = Carbon::now()->timestamp;
@@ -103,7 +104,7 @@ class ForgotPasswordController extends Controller
 
             // si le lien a moins de 30 min
             if (($date_jour - $date_demande) < 1800) {
-                return dd($date_jour - $date_demande);
+                //return dd($date_jour - $date_demande);
 
                 $user->password = Hash::make($password);
                 $user->update(); //or $user->save();
@@ -113,14 +114,17 @@ class ForgotPasswordController extends Controller
 
                 // If the user shouldn't reuse the token later, delete the token
                 DB::table('od_password_resets')->where('email', $user->email)->delete();
+                // changement ok
                 return redirect()->route('Accueil');
             }
             else{
                 //lien expiré
                 DB::table('od_password_resets')->where('token', $request->token)->delete();
+                return dd('lien expiré');
             }
 
             // redirection finale
         }
+        return redirect()->route('Accueil');
     }
 }

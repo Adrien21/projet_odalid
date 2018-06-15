@@ -49,11 +49,13 @@ class EditController extends Controller
         $salles = Salle::get();
         $gaches = Gache::get();
         $relais = Relais::get();
+        $lecteurs = Lecteur::get();
         $relais_portes = Porte::select('relais_id', 'nom')->where('id', '!=', $n)->get();
         return view('portesEdit')->with('porte', $porte)
                                  ->with('salles', $salles)
                                  ->with('relais', $relais)
                                  ->with('gaches', $gaches)
+                                 ->with('lecteurs', $lecteurs)
                                  ->with('relais_portes', $relais_portes);
     }
     // Création porte
@@ -61,11 +63,13 @@ class EditController extends Controller
         $salles = Salle::get();
         $gaches = Gache::get();
         $relais = Relais::get();
+        $lecteurs = Lecteur::where('porte_id', '=', null)->get();
         $relais_portes = Porte::select('relais_id', 'nom')->get();
         return view('portesCreate')->with('salles', $salles)
                                    ->with('relais', $relais)
                                    ->with('gaches', $gaches)
-                                   ->with('relais_portes', $relais_portes);
+                                   ->with('relais_portes', $relais_portes)
+                                   ->with('lecteurs', $lecteurs);
     }
 
     // Redirection gestion salles dans infrastructure

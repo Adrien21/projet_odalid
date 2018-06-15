@@ -18,4 +18,6 @@
         {{ csrf_field() }}
         <input type="submit" value="Valider">
     </form>
+    <br/><br/><br/>
+  <a href="{{ route('Gâches') }}"><button>Retour</button></a>
 @endsection
