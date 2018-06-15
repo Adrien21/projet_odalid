@@ -41,6 +41,8 @@ Route::get('reset/password/{token?}', 'Auth\ForgotPasswordController@showPasswor
 Route::post('reset/password/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
 
 Route::get('/', 'HomeController@index')->name('Accueil');
+//redirect page reinitialisation mdp non trouvée
+Route::get('/home', 'HomeController@index');
 
 Route::post('/login', 'LogPseudoController@authentificate');
 
