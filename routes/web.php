@@ -12,39 +12,40 @@
 */
 
 
-Auth::routes();
-/* => contenu du groupe ci-dessus
-   Route::group(['middleware' => ['web']], function() {
+//Auth::routes();
+// => contenu du groupe ci-dessus
+   //Route::group(['middleware' => ['web']], function() {
 
-// Login Routes...
-    Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
-    Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
-    Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'LogPseudoController@authentificate');
+//Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', function(){return back();});
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-    Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
-    Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
-    Route::get('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
-    Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
-    Route::get('password/reset/{token}', ['as' => 'password.reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-    Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\ResetPasswordController@reset']);
-});
-*/
-// routes pour le login + mdp oublié
+//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+//Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+//Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+//Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::post('/', 'Auth\LoginController@authenticate')->name('login2');
+// routes pour le login + mdp oublié
+Route::post('/', 'Auth\LoginController@authenticate');
+
 Route::get('password/reset', 'Auth\ForgotPasswordController@showForm')->name('forgot.pass');
 Route::post('password/reset', 'Auth\ForgotPasswordController@sendPasswordResetToken')->name('reset.pass');
-Route::get('reset/password/{token?}', 'Auth\ForgotPasswordController@showPasswordResetForm');
-Route::post('reset/password/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
+Route::get('reset/{token?}', 'Auth\ForgotPasswordController@showPasswordResetForm');
+Route::post('reset/{token?}', 'Auth\ForgotPasswordController@resetPassword')->name('request.pass');
 
 Route::get('/', 'HomeController@index')->name('Accueil');
+
 //redirect page reinitialisation mdp non trouvée
 Route::get('/home', 'HomeController@index');
 
-Route::post('/login', 'LogPseudoController@authentificate');
 
 // Test de routes sécurisées avec le controller HomeController
 // (Donc non accessibles si non connecté)
