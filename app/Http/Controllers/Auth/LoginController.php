@@ -47,11 +47,9 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->only('password')['password'], 'enabled' => 1])) {
             // Authentication passed...
         $date_jour = Carbon::now();
-
+        // mise a jour du last_login lors du log
         $user = User::where('username', Auth::user()->username)->update(['last_login' => $date_jour->toDateString()]);;
 
-        //$date_jour->toDateString();
-return dd($date_jour->toDateString());
             return redirect()->intended('dashboard');
         }
         else{
