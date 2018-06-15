@@ -1,6 +1,6 @@
 @extends('layouts.salles')
 
-@section('titre', 'Nouveau')
+@section('titre', 'Nouvelle')
 
 @section('option')
 	@foreach ($zones as $zone)

@@ -81,7 +81,9 @@ class CreateController extends Controller
     }
 
     // Redirection gestion lecteurs dans infrastructure
-    public function lecteurs() {
-        return view('lecteursEdit');
+    public function lecteurs(LecteurRequest $req) {
+        $requete = Lecteur::create($req->all());
+        $n = DB::getPdo()->lastInsertId();
+        return redirect()->route('LecteursEdit', ['n' => $n]);
     }
 }

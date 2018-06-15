@@ -83,26 +83,44 @@ class ForgotPasswordController extends Controller
     }
 
     public function resetPassword(Request $request){
-        //some validation
-        //
-        //
 
-        $password = $request->password;
         $tokenData = DB::table('od_password_resets')
             ->where('token', $request->token)->first();
 
-        $user = User::where('email', $tokenData->email)->first();
-        if ( !$user ) return redirect()->to('home'); //or wherever you want
+        //si l'email renseigner correspond a celui du token
+        if($request->email == $tokenData->email) {
 
-        $user->password = Hash::make($password);
-        $user->update(); //or $user->save();
+            $user = User::where('email', $tokenData->email)->first();
+            // si l'utilisateur du token n'existe pas en base
+            if (!$user) return redirect()->to('Accueil');
 
-        //do we log the user directly or let them login and try their password for the first time ? if yes
-        Auth::login($user);
+            $password = $request->password;
+            $date_jour = Carbon::now()->timestamp;
 
-        // If the user shouldn't reuse the token later, delete the token
-        DB::table('od_password_resets')->where('email', $user->email)->delete();
+            // on cree un nouveau carbon pour le comparer avec maintenant
+            $date_demande = new \DateTime($tokenData->created_at);
+            $date_demande = Carbon::instance($date_demande)->timestamp;
 
-    //redirect where we want according to whether they are logged in or not.
+            // si le lien a moins de 30 min
+            if (($date_jour - $date_demande) < 1800) {
+                return dd($date_jour - $date_demande);
+
+                $user->password = Hash::make($password);
+                $user->update(); //or $user->save();
+
+                //do we log the user directly or let them login and try their password for the first time ? if yes
+                //Auth::login($user);
+
+                // If the user shouldn't reuse the token later, delete the token
+                DB::table('od_password_resets')->where('email', $user->email)->delete();
+                return redirect()->route('Accueil');
+            }
+            else{
+                //lien expiré
+                DB::table('od_password_resets')->where('token', $request->token)->delete();
+            }
+
+            // redirection finale
+        }
     }
 }

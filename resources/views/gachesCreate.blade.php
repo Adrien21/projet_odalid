@@ -1,6 +1,6 @@
 @extends('layouts.gaches')
 
-@section('titre', 'Nouveau')
+@section('titre', 'Nouvelle')
 
 @section('type')
 	<label for="type">Type* : </label>

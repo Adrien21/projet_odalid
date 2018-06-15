@@ -42,18 +42,30 @@ class EditController extends Controller
     }
 
     // Redirection gestion portes dans infrastructure
+    // -> Edition porte
     public function portes($n) {
         // Sélection du nécessaire pour la boucle dans portesEdit.blade.php
         $porte = Porte::where('id', $n)->first();
         $salles = Salle::get();
         $gaches = Gache::get();
         $relais = Relais::get();
-        $relais_portes = Porte::select('relais_id')->where('id', '!=', $n)->get();
+        $relais_portes = Porte::select('relais_id', 'nom')->where('id', '!=', $n)->get();
         return view('portesEdit')->with('porte', $porte)
                                  ->with('salles', $salles)
                                  ->with('relais', $relais)
                                  ->with('gaches', $gaches)
                                  ->with('relais_portes', $relais_portes);
+    }
+    // Création porte
+    public function porteNew() {
+        $salles = Salle::get();
+        $gaches = Gache::get();
+        $relais = Relais::get();
+        $relais_portes = Porte::select('relais_id', 'nom')->get();
+        return view('portesCreate')->with('salles', $salles)
+                                   ->with('relais', $relais)
+                                   ->with('gaches', $gaches)
+                                   ->with('relais_portes', $relais_portes);
     }
 
     // Redirection gestion salles dans infrastructure
@@ -77,6 +89,7 @@ class EditController extends Controller
     }
 
     // Redirection gestion lecteurs dans infrastructure
+    // -> Edition lecteur
     public function lecteurs($n) {
         $lecteur = Lecteur::where('id', $n)->first();
         $portes = Porte::get();
@@ -84,5 +97,10 @@ class EditController extends Controller
         return view('lecteursEdit')->with('lecteur', $lecteur)
                                    ->with('portes', $portes)
                                    ->with('lecteur_portes', $lecteur_portes);
+    }
+    // -> Création lecteur
+    public function lecteurNew() {
+        $portes = Porte::get();
+        return view('lecteursCreate')->with('portes', $portes);
     }
 }

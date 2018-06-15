@@ -27,7 +27,6 @@ class LecteurRequest extends FormRequest
             'ip' => 'bail|required',
             'mac' => 'bail|required',
             'nom' => 'bail|required',
-            'porte_id' => 'bail|required',
         ];
     }
 }
