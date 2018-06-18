@@ -19,6 +19,15 @@ class Badge extends Model
     ];
 
     public function verifGroupe(BadgeRequest $req){
+        // verifie si un group est renseigné, si OUI, on renseigne les tables identitezone et jour pour le badge en fonction du referent du groupe
+        if($req->groupe !=''){
+            //dd($req->groupe);
+            $referent = Badge::find($req->groupe)->first();
+            dd($referent);
+        }
+        else{ dd('vide'); }
+
+        // ajoute automatiquement le user au groupe si type (referent) est renseigné
         if($req->type != "") {
             $groupe = $req->id;
         }

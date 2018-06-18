@@ -34,10 +34,9 @@ class UpdateController extends Controller
     public function badges($n, BadgeRequest $req) {
         $groupe = new Badge;
         $groupe = $groupe->verifGroupe($req);
-       // if($req->type != "") $groupe = $req->type;
-       // else $groupe = $req->groupeOpt;
         // dd($groupe);
         $requete = Badge::find($n)->update($req->all());
+        // ajoute automatiquement le user au groupe si type (referent) est renseigné
         $requete = Badge::find($n)->update(['groupe' => $groupe]);
         //dd($requete);
         return redirect()->route('BadgesEdit', ['n' => $n]);
