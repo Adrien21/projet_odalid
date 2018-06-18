@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -48,12 +50,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user = $this->create($request->all());
+        //dd($request->all());
+
+        return redirect()->route('Utilisateurs');
+    }
+
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:od_user',
             'password' => 'required|string|min:6|confirmed',
+            'expire_at' => 'required',
+            'roles' => 'required',
         ]);
     }
 
@@ -69,8 +84,9 @@ class RegisterController extends Controller
             'username' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'expire_at' => $data['expire_at'],
+            'roles' => $data['roles'],
             'enabled' => 1,
-            'expire_at' => "2018-12-31",
             'locked' => 0,
         ]);
     }

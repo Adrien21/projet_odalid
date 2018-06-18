@@ -18,8 +18,8 @@
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'LogPseudoController@authentificate');
-//Route::post('login', 'Auth\LoginController@login');
+//Route::post('/login', 'LogPseudoController@authentificate');
+Route::post('login', 'Auth\LoginController@authenticate');
 Route::get('logout', function(){return back();});
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -51,6 +51,8 @@ Route::get('/home', 'HomeController@index');
 // (Donc non accessibles si non connecté)
 
 Route::get('/utilisateurs', 'HomeController@utilisateurs')->name('Utilisateurs');
+Route::get('/utilisateurs/edit/{n?}', 'EditController@utilisateurs')->where('n', '[0-9]+')->name('UtilisateursEdit');
+Route::post('/utilisateurs/edit/{n?}', 'UpdateController@utilisateurs')->where('n', '[0-9]+');
 
 Route::get('/historique', 'HomeController@historique')->name('Historique');
 
