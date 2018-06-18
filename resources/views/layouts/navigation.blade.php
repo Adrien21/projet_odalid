@@ -98,14 +98,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="img/Logo3.png" />
 </head>
 <body>
     <div id="app">
         @section('header')
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo darken-4 scrolling-navb">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'DEFAUT') }}
+                    <a class="navbar-brand" href="http://odalid.com/fr/" target="_blank">
+                        <img src="{{ asset('img/Logo2.png') }}" alt="logo" style="height:5vh; background-color: white; border-radius:15px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
