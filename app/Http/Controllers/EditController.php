@@ -32,15 +32,17 @@ class EditController extends Controller
         $referents = Badge::where('type', '!=', NULL)->get();
         return view('badgesEdit')->with('badge', $badge)
                                        ->with('referents', $referents);
-        $zones = Zone::get();
-        $dates_expirations = DateExpiration::where('identite_id', $n)->first();
-        if (isset($dates_expirations)) {
-            $plages_horaires = PlageHoraire::where('identiteZone_id', $dates_expirations->id)->get();
 
-        } else {
-            $dates_expirations = null;
-            $plages_horaires = null;
-        }
+        // Partie Val affichage des heures et jours de permissions, avec les dates de validités
+        // $zones = Zone::get();
+        // $dates_expirations = DateExpiration::where('identite_id', $n)->first();
+        // if (isset($dates_expirations)) {
+        //     $plages_horaires = PlageHoraire::where('identiteZone_id', $dates_expirations->id)->get();
+
+        // } else {
+        //     $dates_expirations = null;
+        //     $plages_horaires = null;
+        // }
     }
 
     // Redirection vers badges NEW
