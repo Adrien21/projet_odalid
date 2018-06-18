@@ -7,7 +7,9 @@
 <div class="card mx-auto " style="width: 80vw;">
   <div class="card-body">
       <h1 class="text-center">Accueil utilisateurs</h1>
-    <a href="{{ route('register') }}">+</a>
+      @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+        <a href="{{ route('register') }}">+</a>
+      @endif
     <table class="table table-striped">
         <thead>
         <tr>
@@ -24,7 +26,7 @@
 
         @foreach ($users as $user)
           <tr>
-            <th scope='row'>{{ $user->id }}</th>
+              <th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}">{{ $user->id }}</a></th>
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->enabled }}</td>
