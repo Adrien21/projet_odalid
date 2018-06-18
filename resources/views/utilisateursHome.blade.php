@@ -7,7 +7,8 @@
 <div class="card mx-auto " style="width: 80vw;">
   <div class="card-body">
       <h1 class="text-center">Accueil utilisateurs</h1>
-      <table class="table table-striped">
+    <a href="{{ route('register') }}">+</a>
+    <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col">#</th>
