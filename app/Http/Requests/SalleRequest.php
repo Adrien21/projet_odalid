@@ -25,7 +25,6 @@ class SalleRequest extends FormRequest
     {
         return [
             'nom' => 'bail|required',
-            'zone_id' => 'bail|required',
         ];
     }
 }

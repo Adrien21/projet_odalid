@@ -5,6 +5,7 @@
 
 <!-- Affichage de toutes les salles -->
 @section('option_salle')
+	<option value="">Aucune</option>
 	@foreach ($salles as $salle)
 
 		@if ($salle->id === $porte->salle_id)
@@ -18,7 +19,7 @@
 <!-- Affichage du nom des gâches et des relais en conséquences -->
 @section('option_relais')
 	<!-- Chaque gâche -->
-	<option value="">Aucune</option>
+	<option value="">Aucun</option>
 	@foreach ($gaches as $gache)
 		<optgroup label="{{ $gache->nom }}">
 			<!-- Chaque relais -->
@@ -66,4 +67,9 @@
         	@endif
         @endforeach
     </select>
+@endsection
+
+@section('supprimer')
+	<br/><br/>
+	<a href=""><button>Supprimer</button></a>
 @endsection

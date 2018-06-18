@@ -13,3 +13,8 @@
         	@endif
         @endforeach
 @endsection
+
+@section('supprimer')
+	<br/><br/>
+	<a href=""><button>Supprimer</button></a>
+@endsection
