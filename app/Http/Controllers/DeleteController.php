@@ -55,6 +55,7 @@ class DeleteController extends Controller
 
     // Redirection gestion lecteurs dans infrastructure
     public function lecteurs($id) {
+        $requete = Lecteur::find($id)->delete();
         return redirect()->route('Lecteurs');
     }
 
