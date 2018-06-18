@@ -61,6 +61,29 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle') }}</label>
+
+                            <div class="col-md-6">
+                                @include('UtilisateursRole')
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="expire_at" class="col-md-4 col-form-label text-md-right">{{ __('Date d\'expiration') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="expire_at" type="date" class="form-control{{ $errors->has('expire_at') ? ' is-invalid' : '' }}" name="expire_at" value="{{ old('expire_at') }}" required>
+
+                                @if ($errors->has('expire_at'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('expire_at') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -9,6 +9,7 @@ use App\Salle;
 use App\Gache;
 use App\Lecteur;
 use App\Relais;
+use App\User;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -30,9 +31,9 @@ class EditController extends Controller
     }
 
     // Redirection utilisateurs
-    public function utilisateurs() {
-        $users = User::get();
-        return view('utilisateursEdit');
+    public function utilisateurs($n) {
+        $user = User::where('id', $n)->first();
+        return view('utilisateursEdit')->with('user', $user);
     }
 
     // Redirection gestion zones dans infrastructure

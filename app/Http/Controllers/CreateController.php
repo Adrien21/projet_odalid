@@ -39,10 +39,7 @@ class CreateController extends Controller
     }
 
     // Redirection utilisateurs
-    public function utilisateurs() {
-        $users = User::get();
-        return view('utilisateursEdit');
-    }
+    //dans le controller Auth/RegisterController.php
 
     // Redirection gestion zones dans infrastructure
     public function zones(ZoneRequest $req) {

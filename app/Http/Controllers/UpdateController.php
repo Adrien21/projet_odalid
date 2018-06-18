@@ -8,6 +8,7 @@ use App\Porte;
 use App\Salle;
 use App\Gache;
 use App\Lecteur;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
 use App\Http\Requests\ZoneRequest;
@@ -36,9 +37,14 @@ class UpdateController extends Controller
     }
 
     // Redirection utilisateurs
-    public function utilisateurs() {
-        $users = User::get();
-        return view('utilisateursEdit');
+    public function utilisateurs($n, Request $req) {
+        // on transforme ON du checkbox (si cochée) en 1, ou, 0 si decochée
+        if($req->enabledOn == 'on') $enabled = 1;
+        else $enabled = 0;
+
+        $users = User::find($n)->update([$req->all(), 'enabled' => $enabled]);
+        //dd($req->all());
+        return redirect()->route('UtilisateursEdit', ['n' => $n]);
     }
 
     // Redirection gestion zones dans infrastructure

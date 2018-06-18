@@ -26,7 +26,7 @@
 
         @foreach ($users as $user)
           <tr>
-            <th scope='row'>{{ $user->id }}</th>
+              <th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}">{{ $user->id }}</a></th>
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->enabled }}</td>
