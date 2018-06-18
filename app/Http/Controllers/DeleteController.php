@@ -51,6 +51,12 @@ class DeleteController extends Controller
 
     // Redirection gestion gaches dans infrastructure
     public function gaches($id) {
+        $requete_relais = Relais::where('gache_id', $id)->get();
+        foreach ($requete_relais as $id_relais) {
+            $requete_portes = Porte::where('relais_id', $id_relais->id)->update(['relais_id' => null]);
+        }
+        $supp_relais = Relais::where('gache_id', $id)->delete();
+        $supp_gache = Gache::find($id)->delete();
         return redirect()->route('Gâches');
     }
 
