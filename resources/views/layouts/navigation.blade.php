@@ -87,8 +87,11 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
     }
+    main {
+      background-image: url('{{ asset("img/fond1.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
+    }
     </style>
-    <title>ODALID-@yield('titre')</title>
+    <title>ODALID @yield('titre')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -98,7 +101,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="img/Logo3.png" />
+    <link rel="icon" href="img/Logo4.png" />
 </head>
 <body>
     <div id="app">
@@ -190,8 +193,12 @@
             </nav>
         @show
 
-        <main class="py-0" style="background-image: url('img/fond1f.jpg'); background-repeat: no-repeat; background-size: cover; height: 100vh;" >
+        <main class="py-0">
+          <div class="mask rgba-black-light h-100">
+
+
             @yield('content')
+            </div>
         </main>
     </div>
     <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>

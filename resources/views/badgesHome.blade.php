@@ -7,13 +7,14 @@
 <div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Badges</h1>
+      <a href="{{ route('BadgesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-address-card" aria-hidden="true"></i></a>
   </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
-    <a href="{{ route('BadgesNew') }}">+</a>
+
       <table class="table table-striped" >
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Editer</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
             <th scope="col">Sexe</th>
@@ -29,7 +30,7 @@
 
           @foreach ($badges as $badge)
               <tr>
-                  <th scope='row'><a href="{{ route('BadgesEdit', ['n' => $badge->id]) }}">{{ $badge->id }}</a></th>
+                  <th scope='row'><a href="{{ route('BadgesEdit', ['n' => $badge->id]) }}"><i class="fa fa-edit deep-orange-text" aria-hidden="true"></i></a></th>
                 <td>{{ $badge->nom }}</td>
                 <td>{{ $badge->prenom }}</td>
                 <td>{{ $badge->sexe }}</td>
