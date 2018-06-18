@@ -20,7 +20,7 @@ class AuthControlMiddleware
             case 'superadmin':
                 return $next($request);
             case 'admin':
-                //autoriser tout sauf modif mot de passe superadmin
+                return $next($request);
             case 'user':
                 if ($request->is('utilisateurs/*')) {
                     return redirect()->route('Utilisateurs');
