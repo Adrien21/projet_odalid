@@ -18,6 +18,7 @@
         {{ csrf_field() }}
         <input type="submit" value="Valider">
     </form>
+    @yield('supprimer')
     <br/><br/><br/>
   <a href="{{ route('Lecteurs') }}"><button>Retour</button></a>
 @endsection

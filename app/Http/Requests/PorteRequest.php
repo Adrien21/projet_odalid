@@ -25,7 +25,6 @@ class PorteRequest extends FormRequest
     {
         return [
             'nom' => 'bail|required',
-            'salle_id' => 'bail|required',
         ];
     }
 }

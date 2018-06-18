@@ -128,22 +128,26 @@
                             <a class="nav-link" href="{{ route('Badges') }}"><i class="fa fa-id-card" aria-hidden="true"></i>Badges</a>
                           </li>
                           <!-- Dropdown -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-building" aria-hiddénite="true"></i>Infrastructure</a></a>
-                                <div class="dropdown-menu dropdown indigo darken-4" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('Zones') }}"><p class="white-text">Zones</p></a>
-                                    <a class="dropdown-item" href="{{ route('Salles') }}"><p class="white-text">Salles</p></a>
-                                    <a class="dropdown-item" href="{{ route('Portes') }}"><p class="white-text">Portes</p></a>
-                                    <a class="dropdown-item" href="{{ route('Lecteurs') }}"><p class="white-text">Lecteurs</p></a>
-                                    <a class="dropdown-item" href="{{ route('Gâches') }}"><p class="white-text">Gaches</p></a>
-                                </div>
-                            </li>
+                          @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-building" aria-hiddénite="true"></i>Infrastructure</a></a>
+                                    <div class="dropdown-menu dropdown indigo darken-4" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="{{ route('Zones') }}"><p class="white-text">Zones</p></a>
+                                        <a class="dropdown-item" href="{{ route('Salles') }}"><p class="white-text">Salles</p></a>
+                                        <a class="dropdown-item" href="{{ route('Portes') }}"><p class="white-text">Portes</p></a>
+                                        <a class="dropdown-item" href="{{ route('Lecteurs') }}"><p class="white-text">Lecteurs</p></a>
+                                        <a class="dropdown-item" href="{{ route('Gâches') }}"><p class="white-text">Gaches</p></a>
+                                    </div>
+                                </li>
+                            @endif
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('Historique') }}"><i class="fa fa-clock-o" aria-hidden="true"></i></i>Historique</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="" ><i class="fa fa-cog" aria-hidden="true"></i>Systeme</a>
-                          </li>
+                          @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+                              <li class="nav-item">
+                                <a class="nav-link" href="" ><i class="fa fa-cog" aria-hidden="true"></i>Systeme</a>
+                              </li>
+                            @endif
                         </ul>
                         @endguest
                         <!-- Right Side Of Navbar -->

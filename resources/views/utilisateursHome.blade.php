@@ -7,7 +7,9 @@
 <div class="card mx-auto " style="width: 80vw;">
   <div class="card-body">
       <h1 class="text-center">Accueil utilisateurs</h1>
-    <a href="{{ route('register') }}">+</a>
+      @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+        <a href="{{ route('register') }}">+</a>
+      @endif
     <table class="table table-striped">
         <thead>
         <tr>

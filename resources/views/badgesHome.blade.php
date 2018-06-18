@@ -3,11 +3,12 @@
 @section('titre', 'Badges')
 
 @section('content')
-<div class="espace" style="height:15vh;"></div>
-<div class="card mx-auto" style="width: 80vw; height:70vh;">
-  <div class="card-body" style=" overflow: auto; height:70vh;">
-
+<div class="espace" style="height:13vh;"></div>
+<div class="card mx-auto" style="width: 87vw; height:81vh">
+  <div class="card-header">
     <h1 class="text-center">Badges</h1>
+  </div>
+  <div class="card-body" style=" overflow: auto; height:70vh;">
     <a href="{{ route('BadgesNew') }}">+</a>
       <table class="table table-striped" >
         <thead>

@@ -13,3 +13,8 @@
 		<span class="ml-3" name="nom">Type : PoE boitier 3 voies</span>
 	@endif
 @endsection
+
+@section('supprimer')
+	<br/><br/>
+	<a href="{{ route('GâchesDelete', ['n' => $gache->id]) }}"><button>Supprimer</button></a>
+@endsection
