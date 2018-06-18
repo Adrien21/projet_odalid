@@ -9,6 +9,8 @@ use App\Gache;
 use App\Relais;
 use App\Porte;
 use App\Lecteur;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class DeleteController extends Controller
@@ -24,7 +26,8 @@ class DeleteController extends Controller
     }
 
     // Redirection utilisateurs
-    public function utilisateurs() {
+    public function utilisateurs($id) {
+        $requete = User::find($id)->delete();
         return redirect()->route('Utilisateurs');
     }
 
@@ -57,7 +60,7 @@ class DeleteController extends Controller
         }
         $supp_relais = Relais::where('gache_id', $id)->delete();
         $supp_gache = Gache::find($id)->delete();
-        return redirect()->route('Gâches');
+        return redirect()->route('Gaches');
     }
 
     // Redirection gestion lecteurs dans infrastructure
