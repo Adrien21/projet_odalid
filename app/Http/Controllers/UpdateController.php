@@ -32,7 +32,14 @@ class UpdateController extends Controller
 
     // Redirection vers badges
     public function badges($n, BadgeRequest $req) {
+        $groupe = new Badge;
+        $groupe = $groupe->verifGroupe($req);
+       // if($req->type != "") $groupe = $req->type;
+       // else $groupe = $req->groupeOpt;
+        // dd($groupe);
         $requete = Badge::find($n)->update($req->all());
+        $requete = Badge::find($n)->update(['groupe' => $groupe]);
+        //dd($requete);
         return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
@@ -42,7 +49,11 @@ class UpdateController extends Controller
         if($req->enabledOn == 'on') $enabled = 1;
         else $enabled = 0;
 
-        $users = User::find($n)->update([$req->all(), 'enabled' => $enabled]);
+        $users = User::find($n)->update(['username' => $req->username,
+                                         'email' => $req->email,
+                                         'roles' => $req->roles,
+                                         'enabled' => $enabled
+                                        ]);
         //dd($req->all());
         return redirect()->route('UtilisateursEdit', ['n' => $n]);
     }

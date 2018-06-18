@@ -5,15 +5,17 @@
 @section('content')
 <div class="espace" style="height:15vh;"></div>
 <div class="card mx-auto " style="width: 80vw;">
+  <div class="card-header">
+    <h1 class="text-center">Accueil utilisateurs</h1>
+    @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+      <a href="{{ route('register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+    @endif
+  </div>
   <div class="card-body">
-      <h1 class="text-center">Accueil utilisateurs</h1>
-      @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
-        <a href="{{ route('register') }}">+</a>
-      @endif
     <table class="table table-striped">
         <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Editer</th>
           <th scope="col">Compte</th>
           <th scope="col">Email</th>
           <th scope="col">Actif</th>
@@ -26,7 +28,7 @@
 
         @foreach ($users as $user)
           <tr>
-              <th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}">{{ $user->id }}</a></th>
+              <th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}"><i class="fa fa-edit deep-orange-text" aria-hidden="true"></i></a></th>
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->enabled }}</td>
@@ -37,6 +39,6 @@
         @endforeach
         </tbody>
       </table>
-    </div>  
+    </div>
 </div>
 @endsection

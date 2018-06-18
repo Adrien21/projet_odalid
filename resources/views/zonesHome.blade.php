@@ -7,17 +7,18 @@
 <div class="espace" style="height:13vh;"></div>
 
 
-	<h1 class="text-center">Gestion des zones</h1>
 
 
-	<div class="col-8 offset-2">
+
+	<div class="col-8">
 
 
 				<div class="col-md-12 col-xl-10 mb-4 mx-auto">
-            <a href="{{ route('ZonesNew') }}"><button class="btn btn-info flex"><i class="fa fa-street-view" aria-hidden="true"></i> Ajouter une zone</button></a>
-
-            <!--Card-->
-            <div class="card">
+            <div class="card mx-auto" style="width: 85vw;height: 81vh;">
+							<div class="card-header">
+									<h1 class="text-center">Gestion des zones</h1>
+									<a href="{{ route('ZonesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-street-view" aria-hidden="true"></i></a>
+							</div>
 
               <!--Card content-->
               <div class="card-body">
