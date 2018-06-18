@@ -37,6 +37,7 @@ class DeleteController extends Controller
 
     // Redirection gestion portes dans infrastructure
     public function portes($id) {
+        $requete = Porte::find($id)->delete();
         return redirect()->route('Portes');
     }
 
