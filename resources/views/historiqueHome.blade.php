@@ -4,13 +4,12 @@
 
 @section('content')
 
-<div class="espace" style="height:15vh;"></div>
-<div class="card mx-auto wow fadeIn" style="width: 80vw;">
+<div class="espace" style="height:13vh;"></div>
+<div class="card mx-auto wow fadeIn" style="width: 87vw; height:81vh">
+  <div class="card-header">
+    <h1 class="text-center">Accueil historique</h1>
+  </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
-
-      <h1 class="text-center">Accueil historique</h1>
-
-
       <table class="table table-striped">
         <thead>
         <tr>
