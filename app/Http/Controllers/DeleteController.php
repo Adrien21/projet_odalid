@@ -57,7 +57,7 @@ class DeleteController extends Controller
         }
         $supp_relais = Relais::where('gache_id', $id)->delete();
         $supp_gache = Gache::find($id)->delete();
-        return redirect()->route('Gâches');
+        return redirect()->route('Gaches');
     }
 
     // Redirection gestion lecteurs dans infrastructure

@@ -136,7 +136,7 @@
                                         <a class="dropdown-item" href="{{ route('Salles') }}"><p class="white-text">Salles</p></a>
                                         <a class="dropdown-item" href="{{ route('Portes') }}"><p class="white-text">Portes</p></a>
                                         <a class="dropdown-item" href="{{ route('Lecteurs') }}"><p class="white-text">Lecteurs</p></a>
-                                        <a class="dropdown-item" href="{{ route('Gâches') }}"><p class="white-text">Gaches</p></a>
+                                        <a class="dropdown-item" href="{{ route('Gaches') }}"><p class="white-text">Gaches</p></a>
                                     </div>
                                 </li>
                             @endif

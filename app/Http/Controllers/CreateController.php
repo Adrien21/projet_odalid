@@ -82,7 +82,7 @@ class CreateController extends Controller
         for ($i = 1; $i <= $nbvoie; $i++) {
             $relais = Relais::create(['gache_id' => $n, 'numero' => $i, 'delaiOuverture' => 0, 'commandeManuelle' => 0]);
         }
-        return redirect()->route('GâchesEdit', ['n' => $n]);
+        return redirect()->route('GachesEdit', ['n' => $n]);
     }
 
     // Redirection gestion lecteurs dans infrastructure

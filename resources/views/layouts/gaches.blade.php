@@ -20,5 +20,5 @@
     </form>
     @yield('supprimer')
     <br/><br/><br/>
-  <a href="{{ route('Gâches') }}"><button>Retour</button></a>
+  <a href="{{ route('Gaches') }}"><button>Retour</button></a>
 @endsection

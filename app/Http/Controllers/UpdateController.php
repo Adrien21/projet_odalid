@@ -68,7 +68,7 @@ class UpdateController extends Controller
     // Redirection gestion gaches dans infrastructure
     public function gaches($n, ZoneRequest $req) {
         $requete = Gache::find($n)->update($req->all());
-        return redirect()->route('GâchesEdit', ['n' => $n]);
+        return redirect()->route('GachesEdit', ['n' => $n]);
     }
 
     // Redirection gestion lecteurs dans infrastructure
