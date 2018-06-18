@@ -4,12 +4,12 @@
 
 @section('content')
 <div class="espace" style="height:15vh;"></div>
-<div class="card mx-auto " style="width: 80vw;">
-  <div class="card-body">
+<div class="card mx-auto" style="width: 80vw; height:70vh;">
+  <div class="card-body" style=" overflow: auto; height:70vh;">
 
     <h1 class="text-center">Badges</h1>
     <a href="{{ route('BadgesNew') }}">+</a>
-      <table class="table table-striped">
+      <table class="table table-striped" >
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -42,7 +42,7 @@
           @endforeach
         </tbody>
       </table>
-    {{ $badges->links() }}
   </div>
+  <div class="mx-auto mt-2">{{ $badges->links() }}</div>
 </div>
 @endsection
