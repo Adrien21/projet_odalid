@@ -76,7 +76,7 @@ Route::get('/infrastructure/zones/create', function(){return view('zonesCreate')
 Route::post('/infrastructure/zones/create', 'CreateController@zones')
 ;
 // Suppression zones
-Route::get('/zones/delete/{n?}', 'DeleteController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesDelete');
+Route::get('/infrastructure/zones/delete/{n?}', 'DeleteController@zones')->middleware('authControl')->where('n', '[0-9]+')->name('ZonesDelete');
 
 // Routes partie portes
 Route::get('/infrastructure/portes', 'HomeController@portes')->middleware('authControl')->name('Portes');
@@ -87,7 +87,7 @@ Route::post('/infrastructure/portes/edit/{n?}', 'UpdateController@portes')->midd
 Route::get('/infrastructure/portes/create', 'EditController@porteNew')->name('PortesNew');
 Route::post('/infrastructure/portes/create', 'CreateController@portes');
 // Suppression portes
-Route::get('/portes/delete/{n?}', 'DeleteController@portes')->middleware('authControl')->where('n', '[0-9]+')->name('PortesDelete');
+Route::get('/infrastructure/portes/delete/{n?}', 'DeleteController@portes')->middleware('authControl')->where('n', '[0-9]+')->name('PortesDelete');
 
 // Routes partie salles
 Route::get('/infrastructure/salles', 'HomeController@salles')->middleware('authControl')->name('Salles');
@@ -98,7 +98,7 @@ Route::post('/infrastructure/salles/edit/{n?}', 'UpdateController@salles')->midd
 Route::get('/infrastructure/salles/create', 'EditController@salleNew')->name('SallesNew');
 Route::post('/infrastructure/salles/create', 'CreateController@salles');
 // Suppression salles
-Route::get('/salles/delete/{n?}', 'DeleteController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesDelete');
+Route::get('/infrastructure/salles/delete/{n?}', 'DeleteController@salles')->middleware('authControl')->where('n', '[0-9]+')->name('SallesDelete');
 
 // Routes partie gaches
 Route::get('/infrastructure/gaches', 'HomeController@gaches')->middleware('authControl')->name('Gâches');
@@ -109,7 +109,7 @@ Route::post('/infrastructure/gaches/edit/{n?}', 'UpdateController@gaches')->midd
 Route::get('/infrastructure/gaches/create', function(){return view('gachesCreate');})->name('GâchesNew');
 Route::post('/infrastructure/gaches/create', 'CreateController@gaches');
 // Suppression gaches
-Route::get('/gaches/delete/{n?}', 'DeleteController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesDelete');
+Route::get('/infrastructure/gaches/delete/{n?}', 'DeleteController@gaches')->middleware('authControl')->where('n', '[0-9]+')->name('GâchesDelete');
 
 // Routes partie lecteurs
 Route::get('/infrastructure/lecteurs', 'HomeController@lecteurs')->middleware('authControl')->name('Lecteurs');
@@ -120,4 +120,4 @@ Route::post('/infrastructure/lecteurs/edit/{n?}', 'UpdateController@lecteurs')->
 Route::get('/infrastructure/lecteurs/create', 'EditController@lecteurNew')->name('LecteursNew');
 Route::post('/infrastructure/lecteurs/create', 'CreateController@lecteurs');
 // Suppression lecteurs
-Route::get('/lecteurs/delete/{n?}', 'DeleteController@lecteurs')->middleware('authControl')->where('n', '[0-9]+')->name('LecteursDelete');
+Route::get('/infrastructure/lecteurs/delete/{n?}', 'DeleteController@lecteurs')->middleware('authControl')->where('n', '[0-9]+')->name('LecteursDelete');
