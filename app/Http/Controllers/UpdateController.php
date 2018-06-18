@@ -32,7 +32,12 @@ class UpdateController extends Controller
 
     // Redirection vers badges
     public function badges($n, BadgeRequest $req) {
-        $requete = Badge::find($n)->update($req->all());
+        $groupe = new Badge;
+        $groupe = $groupe->verifGroupe($req);
+       // if($req->type != "") $groupe = $req->type;
+       // else $groupe = $req->groupeOpt;
+        // dd($groupe);
+        $requete = Badge::find($n)->update([$req->all()]);
         return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 

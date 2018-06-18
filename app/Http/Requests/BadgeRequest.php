@@ -25,7 +25,13 @@ class BadgeRequest extends FormRequest
     {
         return [
             'nom' => 'bail|required',
+            'prenom' => 'bail',
             'email' => 'bail|required',
+            'dateDeNaissance' => 'bail',
+            'numeroIdentite' => 'bail',
+            'sexe' => 'bail',
+            'type' => 'bail',
+            'groupe' => 'bail',
             'dateDeValidite' => 'bail|required',
         ];
     }

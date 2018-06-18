@@ -27,7 +27,17 @@ class EditController extends Controller
     // Redirection vers badges
     public function badges($n) {
         $badge = Badge::where('id', $n)->first();
-        return view('badgesEdit')->with('badge', $badge);
+        $referents = Badge::where('type', '!=', NULL)->get();
+        return view('badgesEdit')->with('badge', $badge)
+                                       ->with('referents', $referents);
+    }
+
+    // Redirection vers badges NEW
+    public function badgesNew() {
+        //$badge = Badge::where('id', $n)->first();
+        $referents = Badge::where('type', '!=', NULL)->get();
+        //dd($referents);
+        return view('badgesCreate')->with('referents', $referents);
     }
 
     // Redirection utilisateurs

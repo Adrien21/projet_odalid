@@ -43,6 +43,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
         $credentials = $request->only('email', 'password');
+
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->only('password')['password'], 'enabled' => 1])) {
             // Authentication passed...
         $date_jour = Carbon::now();
