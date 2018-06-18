@@ -6,5 +6,5 @@
 
 @section('supprimer')
 	<br/><br/>
-	<a href=""><button>Supprimer</button></a>
+	<a href="{{ route('ZonesDelete', ['n' => $zone->id]) }}"><button>Supprimer</button></a>
 @endsection

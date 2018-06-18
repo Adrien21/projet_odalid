@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Badge;
 use App\Zone;
+use App\Salle;
+use App\Gache;
+use App\Relais;
+use App\Porte;
+use App\Lecteur;
 use Illuminate\Http\Request;
 
 class DeleteController extends Controller
@@ -24,7 +29,9 @@ class DeleteController extends Controller
     }
 
     // Redirection gestion zones dans infrastructure
-    public function zones() {
+    public function zones($id) {
+        $requete = Salle::where('zone_id', $id)->update(['zone_id' => null]);
+        $requete2 = Zone::find($id)->delete();
         return redirect()->route('Zones');
     }
 

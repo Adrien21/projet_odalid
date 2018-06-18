@@ -16,5 +16,5 @@
 
 @section('supprimer')
 	<br/><br/>
-	<a href=""><button>Supprimer</button></a>
+	<a href="{{ route('GâchesDelete', ['n' => $gache->id]) }}"><button>Supprimer</button></a>
 @endsection

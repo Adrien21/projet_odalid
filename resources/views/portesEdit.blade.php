@@ -71,5 +71,5 @@
 
 @section('supprimer')
 	<br/><br/>
-	<a href=""><button>Supprimer</button></a>
+	<a href="{{ route('PortesDelete', ['n' => $porte->id]) }}"><button>Supprimer</button></a>
 @endsection

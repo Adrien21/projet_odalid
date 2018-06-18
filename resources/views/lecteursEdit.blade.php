@@ -16,5 +16,5 @@
 
 @section('supprimer')
 	<br/><br/>
-	<a href=""><button>Supprimer</button></a>
+	<a href="{{ route('LecteursDelete', ['n' => $lecteur->id]) }}"><button>Supprimer</button></a>
 @endsection
