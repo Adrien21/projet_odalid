@@ -42,14 +42,16 @@
                     <!-- Material input password -->
 
                     <div class="text-center mt-4">
-                        <button class="btn btn-primary" type="submit">Validez</button>
+                          <p class="blue-text text-center">Validez pour réinitialisez votre mot de passe </p><button class="btn btn-primary" type="submit">Validez</button>
                     </div>
                 </form>
                 <!-- Material form register -->
                 <!-- Form -->
-
+                  <br><br>
               </div>
-              <p class="blue-text text-center">Validez pour réinitialisez votre mot de passe </p>
+              <p class="text-center"> <strong><i class="fa fa-volume-control-phone" aria-hidden="true"></i> : +33 0 12 34 56 78</strong> <br />En cas d'utilisation hors ligne de nos services, merci contacter notre équipe de maintenance.
+               </p>
+
             </div>
             <!--/.Card-->
 

@@ -87,8 +87,11 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
     }
+    main {
+      background-image: url('{{ asset("img/fond1.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
+    }
     </style>
-    <title>ODALID-@yield('titre')</title>
+    <title>ODALID @yield('titre')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -98,14 +101,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="img/Logo4.png" />
 </head>
 <body>
     <div id="app">
         @section('header')
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo darken-4 scrolling-navb">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'DEFAUT') }}
+                    <a class="navbar-brand" href="http://odalid.com/fr/" target="_blank">
+                        <img src="{{ asset('img/Logo2.png') }}" alt="logo" style="height:5vh; background-color: white; border-radius:15px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -189,8 +193,12 @@
             </nav>
         @show
 
-        <main class="py-0" style="background-image: url('img/fond1f.jpg'); background-repeat: no-repeat; background-size: cover; height: 100vh;" >
+        <main class="py-0">
+          <div class="mask rgba-black-light h-100">
+
+
             @yield('content')
+            </div>
         </main>
     </div>
     <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
