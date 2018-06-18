@@ -14,7 +14,7 @@
 
 
   				<div class="col-md-12 col-xl-10 mb-4 mx-auto">
-              <a href="{{ route('GâchesNew') }}"><button class="btn btn-info flex"><i class="fa fa-street-view" aria-hidden="true"></i> Ajouter une gache</button></a>
+              <a href="{{ route('GachesNew') }}"><button class="btn btn-info flex"><i class="fa fa-street-view" aria-hidden="true"></i> Ajouter une gache</button></a>
 
               <!--Card-->
               <div class="card">
@@ -47,8 +47,8 @@
   											<div class="tab-pane fade" id="panel{{ $gache->id }}" role="tabpanel">
   														<p>{{ $gache->nom }}</p>
   														<br>
-  														<a href="{{ route('GâchesEdit', ['n'=>$gache->id]) }}"><button class="btn btn-outline-warning waves-effect flex"><i class="fa fa-edit" aria-hiddénite="true"></i> Modifier</button></a>
-  														<a href="{{ route('GâchesEdit') }}"><button class="btn btn-outline-danger waves-effect flex"><i class="fa fa-trash" aria-hidden="true"></i> Suprimer</button></a>
+  														<a href="{{ route('GachesEdit', ['n'=>$gache->id]) }}"><button class="btn btn-outline-warning waves-effect flex"><i class="fa fa-edit" aria-hiddénite="true"></i> Modifier</button></a>
+  														<a href="{{ route('GachesEdit') }}"><button class="btn btn-outline-danger waves-effect flex"><i class="fa fa-trash" aria-hidden="true"></i> Suprimer</button></a>
 
   														</div>
   											@endforeach
