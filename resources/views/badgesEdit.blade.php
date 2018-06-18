@@ -4,11 +4,46 @@
 
 @section('id', $badge->id)
 @section('nom', $badge->nom)
+@section('prenom', $badge->prenom)
 @section('email', $badge->email)
+@section('dateDeNaissance', $badge->dateDeNaissance)
+@section('numeroIdentite', $badge->numeroIdentite)
+@section('sexe', $badge->sexe)
+@section('type', $badge->type)
 @section('dateDeValidite', $badge->dateDeValidite)
 
 @section('delete')
     <p>
         <a href="{{ route('BadgesDelete', ['n' => $badge->id]) }}">Supprimer</a>
     </p>
+@endsection
+
+@section('restriction')
+	<ul class="nav nav-tabs nav-justified indigo" role="tablist">
+	@foreach ($zones as $zone)
+		<li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel{{ $zone->id }}" role="tab">{{ $zone->nom }}</a>
+      </li>
+			
+	@endforeach
+	</ul>
+	<div class="tab-content">
+	    @foreach ($zones as $zone)
+			<div class="tab-pane fade" id="panel{{ $zone->id }}" role="tabpanel">
+				<p>{{ $zone->nom }}</p>
+				<br>
+				@if(isset($dates_expirations))
+					<label for="dateDebut">Date de début : </label>
+				    <input type="date" id="dateDebut" name="dateDebut" value="{{ $dates_expirations->dateDebut }}">
+					<label for="dateFin">Date de fin : </label>
+				    <input type="date" id="dateFin" name="dateFin" value="{{ $dates_expirations->dateFin }}">
+				@else 
+					<label for="dateDebut">Date de début : </label>
+				    <input type="date" id="dateDebut" name="dateDebut" value="">
+					<label for="dateFin">Date de fin : </label>
+				    <input type="date" id="dateFin" name="dateFin" value="">
+				@endif
+			</div>
+		@endforeach
+	</div>
 @endsection

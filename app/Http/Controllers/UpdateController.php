@@ -9,6 +9,8 @@ use App\Salle;
 use App\Gache;
 use App\Lecteur;
 use App\User;
+use App\DateExpiration;
+use App\PlageHoraire;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
 use App\Http\Requests\ZoneRequest;
@@ -17,6 +19,8 @@ use App\Http\Requests\SalleRequest;
 use App\Http\Requests\GacheRequest;
 use App\Http\Requests\LecteurRequest;
 use App\Http\Requests\RelaisRequest;
+use App\Http\Requests\DateExpirationRequest;
+use App\Http\Requests\PlageHoraireRequest;
 
 class UpdateController extends Controller
 {
@@ -32,7 +36,13 @@ class UpdateController extends Controller
 
     // Redirection vers badges
     public function badges($n, BadgeRequest $req) {
+        $groupe = new Badge;
+        $groupe = $groupe->verifGroupe($req);
+        // dd($groupe);
         $requete = Badge::find($n)->update($req->all());
+        // ajoute automatiquement le user au groupe si type (referent) est renseigné
+        $requete = Badge::find($n)->update(['groupe' => $groupe]);
+        //dd($requete);
         return redirect()->route('BadgesEdit', ['n' => $n]);
     }
 
@@ -42,7 +52,11 @@ class UpdateController extends Controller
         if($req->enabledOn == 'on') $enabled = 1;
         else $enabled = 0;
 
-        $users = User::find($n)->update([$req->all(), 'enabled' => $enabled]);
+        $users = User::find($n)->update(['username' => $req->username,
+                                         'email' => $req->email,
+                                         'roles' => $req->roles,
+                                         'enabled' => $enabled
+                                        ]);
         //dd($req->all());
         return redirect()->route('UtilisateursEdit', ['n' => $n]);
     }

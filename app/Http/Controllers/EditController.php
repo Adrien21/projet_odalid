@@ -10,6 +10,8 @@ use App\Gache;
 use App\Lecteur;
 use App\Relais;
 use App\User;
+use App\DateExpiration;
+use App\PlageHoraire;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -27,7 +29,28 @@ class EditController extends Controller
     // Redirection vers badges
     public function badges($n) {
         $badge = Badge::where('id', $n)->first();
-        return view('badgesEdit')->with('badge', $badge);
+        $referents = Badge::where('type', '!=', NULL)->get();
+        return view('badgesEdit')->with('badge', $badge)
+                                       ->with('referents', $referents);
+
+        // Partie Val affichage des heures et jours de permissions, avec les dates de validités
+        // $zones = Zone::get();
+        // $dates_expirations = DateExpiration::where('identite_id', $n)->first();
+        // if (isset($dates_expirations)) {
+        //     $plages_horaires = PlageHoraire::where('identiteZone_id', $dates_expirations->id)->get();
+
+        // } else {
+        //     $dates_expirations = null;
+        //     $plages_horaires = null;
+        // }
+    }
+
+    // Redirection vers badges NEW
+    public function badgesNew() {
+        //$badge = Badge::where('id', $n)->first();
+        $referents = Badge::where('type', '!=', NULL)->get();
+        //dd($referents);
+        return view('badgesCreate')->with('referents', $referents);
     }
 
     // Redirection utilisateurs

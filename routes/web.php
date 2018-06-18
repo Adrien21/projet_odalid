@@ -59,7 +59,8 @@ Route::get('/historique', 'HomeController@historique')->name('Historique');
 // accueil pour lister tous les badges
 Route::get('/badges', 'HomeController@badges')->name('Badges');
 // route formulaire pour ajouter un badge et le sauvegarder dans la bdd
-Route::get('/badges/create', function(){return view('badgesCreate');})->name('BadgesNew');
+//Route::get('/badges/create', function(){return view('badgesCreate');})->name('BadgesNew');
+Route::get('/badges/create', 'EditController@badgesNew')->name('BadgesNew');
 Route::post('/badges/create', 'CreateController@badges');
 // route pour editer un badge et le sauvegarder dans la bdd
 Route::get('/badges/edit/{n?}', 'EditController@badges')->where('n', '[0-9]+')->name('BadgesEdit');
