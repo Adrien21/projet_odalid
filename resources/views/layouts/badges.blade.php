@@ -19,6 +19,10 @@
         <input type="email" id="email" name="email" value="@yield('email')" required>
     </p>
     <p>
+        <label for="dateDeNaissance">dateDeNaissance : </label>
+        <input type="date" id="dateDeNaissance" name="dateDeNaissance" value="@yield('dateDeNaissance')" required>
+    </p>
+    <p>
         <label for="numeroIdentite">Numéro d'identité : </label>
         <input type="text" id="numeroIdentite" name="numeroIdentite" value="@yield('numeroIdentite')">
     </p>

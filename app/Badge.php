@@ -19,13 +19,13 @@ class Badge extends Model
     ];
 
     public function verifGroupe(BadgeRequest $req){
-       /* if($req->type != "") {
+        if($req->type != "") {
             $groupe = $req->id;
         }
         else{
             $groupe = $req->groupe;
         }
-        return $groupe;*/
+        return $groupe;
     }
 
 }
