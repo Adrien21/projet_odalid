@@ -46,6 +46,7 @@
     <p>
         <label for="dateDeValidite">dateDeValidite* : </label>
         <input type="date" id="dateDeValidite" name="dateDeValidite" value="@yield('dateDeValidite')" required>
+        @yield('restriction')
     </p>
 
     {{ csrf_field() }}

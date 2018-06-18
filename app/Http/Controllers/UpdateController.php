@@ -9,6 +9,8 @@ use App\Salle;
 use App\Gache;
 use App\Lecteur;
 use App\User;
+use App\DateExpiration;
+use App\PlageHoraire;
 use Illuminate\Http\Request;
 use App\Http\Requests\BadgeRequest;
 use App\Http\Requests\ZoneRequest;
@@ -17,6 +19,8 @@ use App\Http\Requests\SalleRequest;
 use App\Http\Requests\GacheRequest;
 use App\Http\Requests\LecteurRequest;
 use App\Http\Requests\RelaisRequest;
+use App\Http\Requests\DateExpirationRequest;
+use App\Http\Requests\PlageHoraireRequest;
 
 class UpdateController extends Controller
 {
