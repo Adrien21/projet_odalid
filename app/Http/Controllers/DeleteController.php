@@ -36,23 +36,25 @@ class DeleteController extends Controller
     }
 
     // Redirection gestion portes dans infrastructure
-    public function portes() {
+    public function portes($id) {
         return redirect()->route('Portes');
     }
 
     // Redirection gestion salles dans infrastructure
-    public function salles() {
+    public function salles($id) {
+        $requete = Porte::where('salle_id', $id)->update(['salle_id' => null]);
+        $requete2 = Salle::find($id)->delete();
         return redirect()->route('Salles');
 
     }
 
     // Redirection gestion gaches dans infrastructure
-    public function gaches() {
+    public function gaches($id) {
         return redirect()->route('Gâches');
     }
 
     // Redirection gestion lecteurs dans infrastructure
-    public function lecteurs() {
+    public function lecteurs($id) {
         return redirect()->route('Lecteurs');
     }
 
