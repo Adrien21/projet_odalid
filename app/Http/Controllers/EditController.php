@@ -32,6 +32,7 @@ class EditController extends Controller
         $badge = Badge::where('id', $n)->first();
         $referents = Badge::where('type', '!=', NULL)->get();
         $zones = Zone::get();
+        $id_tablezone = Zone::select('id')->get();
         $dates_expirations = DateExpiration::where('identite_id', $n)->get();
         if (isset($dates_expirations) && !$dates_expirations->isEmpty()) {
             $table_identitezone = new Collection();
@@ -47,7 +48,8 @@ class EditController extends Controller
                                  ->with('referents', $referents)
                                  ->with('zones', $zones)
                                  ->with('dates_expirations', $dates_expirations)
-                                 ->with('table_identitezone', $table_identitezone);
+                                 ->with('table_identitezone', $table_identitezone)
+                                 ->with('id_tablezone', $id_tablezone);
     }
 
     // Redirection vers badges NEW
