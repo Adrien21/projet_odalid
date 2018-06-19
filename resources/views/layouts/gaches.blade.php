@@ -3,7 +3,11 @@
 @section('titre', 'Gâches')
 
 @section('content')
+<div class="espace" style="height:13vh;"></div>
+<div class="card mx-auto" style="width: 87vw; height:81vh">
+<div class="card-header">
     <h1 class="text-center">Gâches - @yield('titre')</h1>
+</div>
     <form name="modif" action="" method="POST">
         <p>
             <label for="ip">IP* : </label>
@@ -21,4 +25,5 @@
     @yield('supprimer')
     <br/><br/><br/>
   <a href="{{ route('Gaches') }}"><button>Retour</button></a>
+</div>
 @endsection

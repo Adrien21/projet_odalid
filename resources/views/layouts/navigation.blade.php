@@ -87,6 +87,9 @@
     main {
       background-image: url('{{ asset("img/fond5.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
     }
+    .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+      background-color: #2E2E2E !important;
+    }
     </style>
     <title>ODALID @yield('titre')</title>
 
@@ -103,7 +106,7 @@
 <body>
     <div id="app">
         @section('header')
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark  scrolling-navb">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color-dark  scrolling-navb">
                 <div class="container">
                     <a class="navbar-brand" href="http://odalid.com/fr/" target="_blank">
                         <img src="{{ asset('img/Logo2.png') }}" alt="logo" style="height:5vh; background-color: white; border-radius:15px;">
@@ -132,12 +135,12 @@
                           @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-building" aria-hiddénite="true"></i>Infrastructure</a></a>
-                                    <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="{{ route('Zones') }}"><p>Zones</p></a>
-                                        <a class="dropdown-item" href="{{ route('Salles') }}"><p>Salles</p></a>
-                                        <a class="dropdown-item" href="{{ route('Portes') }}"><p>Portes</p></a>
-                                        <a class="dropdown-item" href="{{ route('Lecteurs') }}"><p>Lecteurs</p></a>
-                                        <a class="dropdown-item" href="{{ route('Gaches') }}"><p>Gaches</p></a>
+                                    <div class="dropdown-menu dropdown elegant-color-dark" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="{{ route('Zones') }}"><p class="white-text">Zones</p></a>
+                                        <a class="dropdown-item" href="{{ route('Salles') }}"><p class="white-text">Salles</p></a>
+                                        <a class="dropdown-item" href="{{ route('Portes') }}"><p class="white-text">Portes</p></a>
+                                        <a class="dropdown-item" href="{{ route('Lecteurs') }}"><p class="white-text">Lecteurs</p></a>
+                                        <a class="dropdown-item" href="{{ route('Gaches') }}"><p class="white-text">Gaches</p></a>
                                     </div>
                                 </li>
                             @endif
@@ -171,7 +174,7 @@
                                         {{ Auth::user()->username }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right indigo darken-4" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right elegant-color-dark" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">

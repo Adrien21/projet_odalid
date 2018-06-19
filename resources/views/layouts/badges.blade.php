@@ -2,8 +2,14 @@
 
 @section('titre', 'Badges')
 
+
 @section('content')
+<div class="espace" style="height:13vh;"></div>
+<div class="card mx-auto" style="width: 87vw; height:81vh">
+<div class="card-header">
+
     <h1 class="text-center">Badges - @yield('titre')</h1>
+    </div>
 <form name="modif" action="" method="POST">
     <p>@yield('id')<input type='hidden' name="id" value="@yield('id')"></p>
     <p>
@@ -55,4 +61,5 @@
 
 <p>@yield('delete')</p>
 
+</div>
 @endsection
