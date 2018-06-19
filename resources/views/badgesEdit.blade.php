@@ -32,6 +32,14 @@
 			<div class="tab-pane fade" id="panel{{ $zone->id }}" role="tabpanel">
 				<br/>
 				@if (isset($dates_expirations) && $dates_expirations != null)
+					@foreach($id_tablezone as $idzone)
+							@if(!$dates_expirations->contains('zone_id', $idzone->id) && $idzone->id == $zone->id)
+								<label for="dateDebut">Date de début : </label>
+					    		<input type="date" id="dateDebut" name="dateDebut" value="">
+								<label for="dateFin">Date de fin : </label>
+					    		<input type="date" id="dateFin" name="dateFin" value="">
+					    	@endif
+					@endforeach
 					@foreach ($dates_expirations as $date_permission)
 						@if ($date_permission->zone_id === $zone->id)
 							<label for="dateDebut">Date de début : </label>
