@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12" style="height: 75vh;">
             <div class="card text-center" style="margin-top: 20vh;">
-                <div class="card-header">Tableau de bord</div>
+                <div class="card-header h4">Bienvenue {{ Auth::user()->username }} </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Vous êtes connecté !
                     <!-- (Derniers évènements ou laisser ce message ?) -->
                 </div>
 

@@ -1,11 +1,12 @@
 @extends('layouts.navigation')
 
 @section('content')
+<div class="espace" style="height:22vh;"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Inscription') }}</div>
+                <div class="h4 card-header text-center">Ajouter un utilisateur</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -87,7 +88,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('S\'enregistrer') }}
+                                    {{ __('Valider') }}
                                 </button>
                             </div>
                         </div>
