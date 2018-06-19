@@ -120,7 +120,7 @@
                         @else
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                          <li class="nav-item active">
+                          <li class="nav-item">
                             <a class="nav-link" href="/"><i class="fa fa-tachometer" aria-hidden="true"></i>Tableau de bord
                               <span class="sr-only">(current)</span>
                             </a>
