@@ -34,10 +34,10 @@ class EditController extends Controller
         $zones = Zone::get();
         $id_tablezone = Zone::select('id')->get();
         $dates_expirations = DateExpiration::where('identite_id', $n)->get();
-        if (isset($dates_expirations) && !$dates_expirations->isEmpty()) {
+        if (isset($dates_expirations) && $dates_expirations != null) {
             $table_identitezone = new Collection();
             foreach ($dates_expirations as $id_identitezone) {
-                $plage_horaire = PlageHoraire::where('identiteZone_id', $id_identitezone->id)->get();
+                $plage_horaire = PlageHoraire::where('identiteZone_id', $id_identitezone->id)->orderBy('nom', 'asc')->get();
                 $table_identitezone = $table_identitezone->merge($plage_horaire);
             }
         } else {
