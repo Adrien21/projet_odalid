@@ -13,6 +13,7 @@ use App\User;
 use App\DateExpiration;
 use App\PlageHoraire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class EditController extends Controller
 {
@@ -30,19 +31,23 @@ class EditController extends Controller
     public function badges($n) {
         $badge = Badge::where('id', $n)->first();
         $referents = Badge::where('type', '!=', NULL)->get();
+        $zones = Zone::get();
+        $dates_expirations = DateExpiration::where('identite_id', $n)->get();
+        if (isset($dates_expirations) && !$dates_expirations->isEmpty()) {
+            $table_identitezone = new Collection();
+            foreach ($dates_expirations as $id_identitezone) {
+                $plage_horaire = PlageHoraire::where('identiteZone_id', $id_identitezone->id)->get();
+                $table_identitezone = $table_identitezone->merge($plage_horaire);
+            }
+        } else {
+            $dates_expirations = null;
+            $table_identitezone = null;
+        }
         return view('badgesEdit')->with('badge', $badge)
-                                       ->with('referents', $referents);
-
-        // Partie Val affichage des heures et jours de permissions, avec les dates de validités
-        // $zones = Zone::get();
-        // $dates_expirations = DateExpiration::where('identite_id', $n)->first();
-        // if (isset($dates_expirations)) {
-        //     $plages_horaires = PlageHoraire::where('identiteZone_id', $dates_expirations->id)->get();
-
-        // } else {
-        //     $dates_expirations = null;
-        //     $plages_horaires = null;
-        // }
+                                 ->with('referents', $referents)
+                                 ->with('zones', $zones)
+                                 ->with('dates_expirations', $dates_expirations)
+                                 ->with('table_identitezone', $table_identitezone);
     }
 
     // Redirection vers badges NEW
