@@ -34,25 +34,59 @@
 				@if (isset($dates_expirations) && $dates_expirations != null)
 					@foreach($id_tablezone as $idzone)
 							@if(!$dates_expirations->contains('zone_id', $idzone->id) && $idzone->id == $zone->id)
-								<label for="dateDebut">Date de début : </label>
-					    		<input type="date" id="dateDebut" name="dateDebut" value="">
-								<label for="dateFin">Date de fin : </label>
-					    		<input type="date" id="dateFin" name="dateFin" value="">
+								<label for="dateDebut_{{$zone->id}}">Date de début : </label>
+					    		<input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="">
+								<label for="dateFin_{{$zone->id}}">Date de fin : </label>
+					    		<input type="date" id="dateFin_{{$zone->id}}" name="dateFin_{{$zone->id}}" value="">
 					    	@endif
 					@endforeach
 					@foreach ($dates_expirations as $date_permission)
 						@if ($date_permission->zone_id === $zone->id)
-							<label for="dateDebut">Date de début : </label>
-						    <input type="date" id="dateDebut" name="dateDebut" value="{{ $date_permission->dateDebut }}">
-							<label for="dateFin">Date de fin : </label>
-						    <input type="date" id="dateFin" name="dateFin" value="{{ $date_permission->dateFin }}">
+							<label for="dateDebut_{{$zone->id}}">Date de début : </label>
+						    <input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="{{ $date_permission->dateDebut }}">
+							<label for="dateFin_{{$zone->id}}">Date de fin : </label>
+						    <input type="date" id="dateFin_{{$zone->id}}" name="dateFin_{{$zone->id}}" value="{{ $date_permission->dateFin }}">
+						    <br/><br/>
+						    @foreach ($table_identitezone as $heure_jour)
+						    	@if ($heure_jour->identiteZone_id == $date_permission->id)
+						    		<fieldset>
+						    			@switch($heure_jour->nom)
+						    				@case(0)
+						    					<legend>Dimanche</legend>
+						    					@break
+						    				@case(1)
+						    					<legend>Lundi</legend>
+						    					@break
+						    				@case(2)
+						    					<legend>Mardi</legend>
+						    					@break
+						    				@case(3)
+						    					<legend>Mercredi</legend>
+						    					@break
+						    				@case(4)
+						    					<legend>Jeudi</legend>
+						    					@break
+						    				@case(5)
+						    					<legend>Vendredi</legend>
+						    					@break
+						    				@case(6)
+						    					<legend>Samedi</legend>
+						    					@break
+						    			@endswitch
+							    		<label for="heureDebut_{{$date_permission->id}}_{{$heure_jour->nom}}">Heure de début : </label>
+							    		<input type="time" id="heureDebut_{{$date_permission->id}}_{{$heure_jour->nom}}" name="heureDebut_{{$date_permission->id}}_{{$heure_jour->nom}}" value="{{ $heure_jour->heureDebut }}">
+							    		<label for="heureFin_{{$date_permission->id}}_{{$heure_jour->nom}}">Heure de fin : </label>
+							    		<input type="time" id="heureFin_{{$date_permission->id}}_{{$heure_jour->nom}}" name="heureFin_{{$date_permission->id}}_{{$heure_jour->nom}}" value="{{ $heure_jour->heureFin }}">
+							    	</fieldset><br/><br/>
+						    	@endif
+						    @endforeach
 						@endif
 				    @endforeach
 				@else 
-					<label for="dateDebut">Date de début : </label>
-				    <input type="date" id="dateDebut" name="dateDebut" value="">
-					<label for="dateFin">Date de fin : </label>
-				    <input type="date" id="dateFin" name="dateFin" value="">
+					<label for="dateDebut_{{$zone->id}}">Date de début : </label>
+				    <input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="">
+					<label for="dateFin_{{$zone->id}}">Date de fin : </label>
+				    <input type="date" id="dateFin_{{$zone->id}}" name="dateFin_{{$zone->id}}" value="">
 				@endif
 			</div>
 		@endforeach

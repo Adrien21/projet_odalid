@@ -23,9 +23,7 @@ class Badge extends Model
         if($req->groupe !=''){
             //dd($req->groupe);
             $referent = Badge::find($req->groupe)->first();
-            dd($referent);
         }
-        else{ dd('vide'); }
 
         // ajoute automatiquement le user au groupe si type (referent) est renseigné
         if($req->type != "") {
