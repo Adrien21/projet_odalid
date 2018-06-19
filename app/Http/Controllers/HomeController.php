@@ -27,7 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $historiques = DB::table('od_historique')
+                          ->select('od_historique.id', 'od_identite.nom as identite_nom', 'od_historique.dateEvenement', 'od_porte.nom as porte_nom', 'od_historique.etatEvenement')->orderBy('dateEvenement', 'desc')->limit(10)
+                          ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
+                          ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
+                          ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
+                          ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
+                          ->get();
+
+      return view('home', ['historiques' => $historiques]);
     }
 
     // Redirection vers badges
