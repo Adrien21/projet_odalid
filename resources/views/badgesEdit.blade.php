@@ -20,6 +20,7 @@
 
 @section('restriction')
 	<ul class="nav nav-tabs nav-justified indigo" role="tablist">
+
 	@foreach ($zones as $zone)
 		<li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#panel{{ $zone->id }}" role="tab">{{ $zone->nom }}</a>
@@ -29,10 +30,13 @@
 	</ul>
 	<div class="tab-content">
 	    @foreach ($zones as $zone)
+			<!-- Affichage des onglets pour chaque zone -->
 			<div class="tab-pane fade" id="panel{{ $zone->id }}" role="tabpanel">
 				<br/>
+				<!-- Si les dates de permission ne sont pas null (retour de EditController.php), affichage -->
 				@if (isset($dates_expirations) && $dates_expirations != null)
 					@foreach($id_tablezone as $idzone)
+					<!-- Affichage des dates de permission vides si l'entrée id_zone de od_identitezone n'existe pas, mais que d'autres existent -->
 							@if(!$dates_expirations->contains('zone_id', $idzone->id) && $idzone->id == $zone->id)
 								<label for="dateDebut_{{$zone->id}}">Date de début : </label>
 					    		<input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="">
@@ -40,14 +44,18 @@
 					    		<input type="date" id="dateFin_{{$zone->id}}" name="dateFin_{{$zone->id}}" value="">
 					    	@endif
 					@endforeach
+					<!-- Pour chaques date de permission (od_identitezone -> dateDebut et dateFin)  -->
 					@foreach ($dates_expirations as $date_permission)
+						<!-- Si l'id-zone de od_identitezone = id de od_zones (retrouvé avec le foreach du début), affichage des données -->
 						@if ($date_permission->zone_id === $zone->id)
 							<label for="dateDebut_{{$zone->id}}">Date de début : </label>
 						    <input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="{{ $date_permission->dateDebut }}">
 							<label for="dateFin_{{$zone->id}}">Date de fin : </label>
 						    <input type="date" id="dateFin_{{$zone->id}}" name="dateFin_{{$zone->id}}" value="{{ $date_permission->dateFin }}">
 						    <br/><br/>
-						    @foreach ($table_identitezone as $heure_jour)
+						    <!-- Pour chaque date permises, affichage des heures d'accès -->
+						    @foreach ($table_jour as $heure_jour)
+						    	<!-- Si l'id_identiteZone de od_jour = l'id de od_identitezone, affichage des heures d'accès selon les jours -->
 						    	@if ($heure_jour->identiteZone_id == $date_permission->id)
 						    		<fieldset>
 						    			@switch($heure_jour->nom)
@@ -82,6 +90,7 @@
 						    @endforeach
 						@endif
 				    @endforeach
+				<!-- Sinon affichage des champs dates vides -->
 				@else 
 					<label for="dateDebut_{{$zone->id}}">Date de début : </label>
 				    <input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="">
