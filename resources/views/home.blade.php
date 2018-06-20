@@ -4,11 +4,11 @@
 <div class="espace" style="height:13vh;"></div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12" style="height: 75vh;">
+        <div class="col-md-12">
             <div class="card text-center">
                 <div class="card-header h3">Bienvenue {{ Auth::user()->username }} </div>
 
-                <div class="card-body">
+                <div class="card-body"  style="overflow: auto; height: 75vh;">
 
 
 
