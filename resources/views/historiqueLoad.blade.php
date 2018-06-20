@@ -22,4 +22,4 @@
         </tbody>
     </table>
 </div>
-<div class="mx-auto mt-2">{{ $historiques->links() }}</div>
+<div class="d-flex justify-content-center" style="margin-top:1vh;">{{ $historiques->links() }}</div>
