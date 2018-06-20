@@ -20,6 +20,5 @@
 @endsection
 
 @section('supprimer')
-	<br/><br/>
-	<a href="{{ route('LecteursDelete', ['n' => $lecteur->id]) }}"><button class="btn btn-danger" style="left: 48vw;bottom: -5.4vh;">Supprimer</button></a>
+	<a href="{{ route('LecteursDelete', ['n' => $lecteur->id]) }}"><button class="btn btn-danger">Supprimer</button></a>
 @endsection
