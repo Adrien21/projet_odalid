@@ -81,14 +81,14 @@ class HomeController extends Controller
         // Délimiteur entre les données
         $delimiteur = ";";
         // Définition du titre des champs
-        $champs = array('Identifiant BDD', 'Nom badge', 'Date évènement', 'Nom porte', 'Etat évènement', "\r");
+        $champs = array('Identifiant BDD', 'Nom badge', 'Date évènement', 'Nom porte', 'Etat évènement');
         // Ecriture des titres de champ dans le fichier
-        fputcsv($download, $champs, $delimiteur, "\r");
+        fputcsv($download, $champs, $delimiteur);
         // Pour chaque entrée de la BDD historique (avec les join)
         foreach ($historique as $valeur) {
-            $info_histo = array($valeur->id, $valeur->identite_nom, $valeur->dateEvenement, $valeur->porte_nom, $valeur->etatEvenement, "\r");
+            $info_histo = array($valeur->id, $valeur->identite_nom, $valeur->dateEvenement, $valeur->porte_nom, $valeur->etatEvenement);
             // Ecriture dans le fichier .csv
-            fputcsv($download, $info_histo, $delimiteur, "\r");
+            fputcsv($download, $info_histo, $delimiteur);
         }
         // Retour du curseur au début du fichier
         fseek($download, 0);
