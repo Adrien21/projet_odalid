@@ -2,14 +2,12 @@ html,
 body,
 header,
 .view {
-    height: 80%;
 }
 @media (max-width: 740px) {
     html,
     body,
     header,
     .view {
-        height: 100px;
     }
 }
 @media (min-width: 800px) and (max-width: 850px) {
@@ -17,7 +15,6 @@ header,
     body,
     header,
     .view {
-        height: 650px;
     }
 }
 @media (min-width: 800px) and (max-width: 850px) {
