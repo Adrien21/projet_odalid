@@ -8,7 +8,7 @@
 	<div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Lecteurs</h1>
-      <a href="{{ route('LecteursNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-address-card" aria-hidden="true"></i></a>
+      <a href="{{ route('LecteursNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-rss-square" aria-hidden="true"></i> Ajouter un lecteur </a>
   </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
 

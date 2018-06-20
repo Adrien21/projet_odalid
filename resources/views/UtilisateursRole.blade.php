@@ -1,4 +1,4 @@
-<select id="roles" name="roles" required>
+<select id="roles" name="roles" style="margin-left: 2vw;" required>
     @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'superadmin')
         <option value="user" @isset($user->roles) @else {{ 'selected' }}@endisset>Utilisateur</option>
         <option value="admin" @isset($user->roles) @if($user->roles == 'admin') {{ 'selected' }} @endif @endisset>Administrateur</option>

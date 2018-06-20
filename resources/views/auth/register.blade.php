@@ -93,7 +93,13 @@
                             </div>
                         </div>
                     </form>
+                    @yield('supprimer')
+                    <br/><br/><br/>
+                  	<a href="{{ route('Utilisateurs') }}"><button class="btn btn-blue-grey">Retour</button></a>
+                  </div>
                 </div>
+
+
             </div>
         </div>
     </div>

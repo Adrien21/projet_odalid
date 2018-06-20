@@ -8,7 +8,7 @@
 	<div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Zones</h1>
-      <a href="{{ route('ZonesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-address-card" aria-hidden="true"></i></a>
+      <a href="{{ route('ZonesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-street-view" aria-hidden="true"></i> Ajouter une zone </a>
   </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
 

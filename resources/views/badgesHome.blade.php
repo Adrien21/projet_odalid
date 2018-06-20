@@ -7,7 +7,7 @@
 <div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Badges</h1>
-      <a href="{{ route('BadgesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-address-card" aria-hidden="true"></i></a>
+      <a href="{{ route('BadgesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-id-badge" aria-hidden="true"></i> Ajouter un badge</a>
   </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
 

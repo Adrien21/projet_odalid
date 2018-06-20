@@ -8,13 +8,25 @@
 
 @section('type')
 	@if ($gache->type === "prd4")
-		<span class="ml-3" name="nom">Type : PoE rail DIN 4 voies</span>
+	<div class="form-group row">
+		<label for="porten" class="col-md-4 col-form-label text-md-right">Type </label>
+		<div class="col-md-6">
+				<input id="nom" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="porten"  value="PoE rail DIN 4 voies" disabled>
+		</div>
+	</div>
+		<span class="ml-3" name="nom"></span>
 	@else
-		<span class="ml-3" name="nom">Type : PoE boitier 3 voies</span>
+	<div class="form-group row">
+		<label for="porten" class="col-md-4 col-form-label text-md-right">Type</label>
+		<div class="col-md-6">
+				<input id="nom" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="porten"  value="PoE boitier 3 voies" disabled>
+		</div>
+	</div>
+		<span class="ml-3" name="nom"></span>
 	@endif
 @endsection
 
 @section('supprimer')
 	<br/><br/>
-	<a href="{{ route('GachesDelete', ['n' => $gache->id]) }}"><button>Supprimer</button></a>
+	<a href="{{ route('GachesDelete', ['n' => $gache->id]) }}"><button class="btn btn-danger" style="left: 48vw;bottom: -5.4vh;">Supprimer</button></a>
 @endsection
