@@ -64,7 +64,7 @@ class UpdateController extends Controller
             // Si aucune entrée dans la table od_identitezone avec un zone_id = $i 
             // ET que les variables datedebut et datefin ne sont pas null
             // -> création d'une entrée dans od_identitezone
-            if (!($ligne_bdd->exists()) && $req->$datedebut != null && $req->$datefin != null) {
+            if (!($ligne_bdd->exists()) && $req->$datedebut != null) {
                 $requete2 = DateExpiration::create(['dateDebut' => $req->$datedebut,
                                                     'dateFin' => $req->$datefin,
                                                     'identite_id' => $n,
@@ -83,7 +83,7 @@ class UpdateController extends Controller
                 // Sinon, si une entrée zone_id dans od_identitezone existe déjà
             } else {
                 // Mise à jour des dates de permissions avec od_identitezone.zone_id = $i (car $i = id de zone dans laquelle on boucle actuellement)
-                $requete2 = DateExpiration::where('zone_id', $i)
+                $requete4 = DateExpiration::where('zone_id', $i)
                                             ->where('identite_id', $n)
                                             ->update(['dateDebut' => $req->$datedebut,
                                                       'dateFin' => $req->$datefin
@@ -107,7 +107,7 @@ class UpdateController extends Controller
                     $heuredebut = 'heureDebut_' .$update->identiteZone_id .'_' .$update->nom;
                     $heurefin = 'heureFin_' .$update->identiteZone_id .'_' .$update->nom;
                     // Mise à jour selon l'identiteZone_id qui a 7 occurences, donc on affine avec le nom, qui est unique par zone
-                    $requete3 = PlageHoraire::where('identiteZone_id', $update->identiteZone_id)
+                    $requete5 = PlageHoraire::where('identiteZone_id', $update->identiteZone_id)
                                             ->where('nom', $update->nom)
                                             ->update(['heureDebut' => $req->$heuredebut,
                                                       'heureFin' => $req->$heurefin

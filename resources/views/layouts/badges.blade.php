@@ -147,11 +147,6 @@
             @endif
         </div>
     </div>
-    <!-- <p>
-        <label for="dateDeValidite">dateDeValidite* : </label>
-        <input type="date" id="dateDeValidite" name="dateDeValidite" value="@yield('dateDeValidite')" required>
-        @yield('restriction')
-    </p> -->
     <div class="form-group row">
         <label for="dateDeValidite" class="col-md-4 col-form-label text-md-right">Date de Validité</label>
         <div class="col-md-6">
@@ -163,6 +158,7 @@
             @endif
         </div>
     </div>
+    @yield('restriction')
 
     {{ csrf_field() }}
     <div class="form-group row">
@@ -170,7 +166,7 @@
             <button type="submit" class="btn btn-primary btn-md">Valider</button>
         </div>
     </div>
-    @yield('restriction')
+    
 </form>
 
 <p>@yield('delete')</p>
