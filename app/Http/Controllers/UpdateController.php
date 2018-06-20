@@ -13,6 +13,7 @@ use App\DateExpiration;
 use App\PlageHoraire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 use App\Http\Requests\BadgeRequest;
 use App\Http\Requests\ZoneRequest;
 use App\Http\Requests\PorteRequest;
@@ -55,12 +56,10 @@ class UpdateController extends Controller
         for ($i = 1; $i <= (Zone::count()); $i++) {
             $datedebut = 'dateDebut_' .$i;
             $datefin = 'dateFin_' .$i;
-            $heuredebut = 'heureDebut_' .$i;
-            $heurefin = 'heureFin_' .$i;
             $ligne_bdd = DateExpiration::where('zone_id', $i)
                                         ->where('identite_id', $n);
 
-            if (!($ligne_bdd->exists()) && $req->$datedebut != null) {
+            if (!($ligne_bdd->exists()) && $req->$datedebut != null && $req->$datefin != null) {
                 $requete2 = DateExpiration::create(['dateDebut' => $req->$datedebut,
                                                     'dateFin' => $req->$datefin,
                                                     'identite_id' => $n,
@@ -81,10 +80,22 @@ class UpdateController extends Controller
                                             ->update(['dateDebut' => $req->$datedebut,
                                                       'dateFin' => $req->$datefin
                                                     ]);
-                $test = DB::table('od_identitezone')->join('od_jour', 'od_identitezone.id', '=', 'od_jour.identiteZone_id')->select('od_jour.*', 'od_identitezone.*')->get();
-                dd($test);
-                for ($j = 0; $j <= 6; $j++) {
-                    $requete3 = PlageHoraire::where('identite');
+                $od_identitezone = DateExpiration::where('identite_id', $n)
+                                                    ->where('zone_id', $i)
+                                                    ->get();
+                $od_jour_maj = new Collection();
+                foreach ($od_identitezone as $id) {
+                    $recup_jour = PlageHoraire::where('identiteZone_id', $id->id)->get();
+                    $od_jour_maj = $od_jour_maj->merge($recup_jour);
+                }
+                foreach ($od_jour_maj as $update) {
+                    $heuredebut = 'heureDebut_' .$update->identiteZone_id .'_' .$update->nom;
+                    $heurefin = 'heureFin_' .$update->identiteZone_id .'_' .$update->nom;
+                    $requete3 = PlageHoraire::where('identiteZone_id', $update->identiteZone_id)
+                                            ->where('nom', $update->nom)
+                                            ->update(['heureDebut' => $req->$heuredebut,
+                                                      'heureFin' => $req->$heurefin
+                                                    ]);
                 }
             }
         }

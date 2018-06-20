@@ -170,6 +170,7 @@
             <button type="submit" class="btn btn-primary btn-md">Valider</button>
         </div>
     </div>
+    @yield('restriction')
 </form>
 
 <p>@yield('delete')</p>
