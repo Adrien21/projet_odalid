@@ -1,8 +1,9 @@
 @extends('layouts.navigation')
 
 @section('content')
-<div class="view full-page-intro" style="background-image: url('../../img/fond5.jpg'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
+<!-- ------------------ FORGOT PASSWORD PAGE ------------------ -->
 
+<div class="view full-page-intro" style="background-image: url('../../img/fond5.jpg'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
       <div class="container">
         <div class="row wow fadeIn">

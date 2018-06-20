@@ -1,3 +1,5 @@
+<!-- ------------------ NAVIGATION MAIN PAGE ------------------ -->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -18,10 +20,8 @@
         }
     </style>
     <title>ODALID @yield('titre')</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -75,9 +75,11 @@
                             <a class="nav-link" href="{{ route('Historique') }}"><i class="fa fa-clock-o" aria-hidden="true"></i></i> Historique</a>
                           </li>
                           @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+                              <!-- ---------- INSERER ICI LA PAGE DES PREFERENCES SYSTEME ----------
                               <li class="nav-item">
                                 <a class="nav-link" href="" ><i class="fa fa-cog" aria-hidden="true"></i> Systeme</a>
                               </li>
+                              ---------- INSERER ICI LA PAGE DES PREFERENCES SYSTEME ----------  -->
                             @endif
                         </ul>
                         @endguest
@@ -88,13 +90,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                                 </li>
-                               <!-- a mettre en commentaire -->
-                            <!--
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
-                                </li>
-                                -->
-                                <!-- fin de mise en commentaire -->
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -123,15 +118,13 @@
         <main class="py-0">
           <div class="mask">
             @yield('content')
-            </div>
+          </div>
         </main>
     </div>
     <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/mdb.min.js') }}"></script>
-    <script type="text/javascript">
-    </script>
     @yield('scripts')
 </body>
 </html>

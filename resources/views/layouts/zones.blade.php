@@ -3,6 +3,8 @@
 @section('titre', 'Zones')
 
 @section('content')
+ <!-- ---------- ZONES EDIT PAGE ---------- -->
+
 <div class="espace" style="height:29vh;"></div>
 <div class="card mx-auto w-75">
     <div class="card-header">
