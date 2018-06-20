@@ -4,14 +4,14 @@
 
 @section('content')
 <div class="espace" style="height:15vh;"></div>
-<div class="card mx-auto " style="width: 80vw; height: 55vh;">
+<div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Accueil utilisateurs</h1>
     @if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
       <a href="{{ route('register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter un utilisateur</a>
     @endif
   </div>
-  <div class="card-body" style="overflow: auto; width: 80vw; height: 55vh;">
+  <div class="card-body" style="overflow: auto;">
     <table class="table table-striped">
         <thead>
         <tr>

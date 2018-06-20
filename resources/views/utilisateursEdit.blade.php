@@ -7,10 +7,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card" style="height: auto;">
+                <div class="card">
                     <div class="h4 card-header text-center">Modifier un utilisateur</div>
 
-                    <div class="card-body" style="height: auto;">
+                    <div class="card-body" style="overflow: auto; ">
                         <form method="POST" name="modif" action="">
                             @csrf
 

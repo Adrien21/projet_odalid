@@ -61,6 +61,45 @@ class HomeController extends Controller
         return view('utilisateursHome')->with('users', $users);
     }
 
+    // Télécharger l'historique
+    public function historiqueDownload() {
+        // Récupération de l'historique complet
+        $historique = DB::table('od_historique')
+                                    ->select('od_historique.id', 'od_identite.nom as identite_nom', 'od_historique.dateEvenement', 'od_porte.nom as porte_nom', 'od_historique.etatEvenement')
+                                    ->join('od_identite', 'od_historique.identite_id', '=', 'od_identite.id')
+                                    ->join('od_lecteur', 'od_historique.lecteur_id', '=', 'od_lecteur.id')
+                                    ->join('od_porte', 'od_lecteur.porte_id', '=', 'od_porte.id')
+                                    ->join('od_salle', 'od_porte.salle_id', '=', 'od_salle.id')
+                                    ->orderBy('od_historique.dateEvenement', 'desc')
+                                    ->get();
+
+        // Nom du fichier qui sera téléchargé
+        $nom_fichier = "Historique.csv";
+
+        // Ouverture pour écriture dans le fichier
+        $download = fopen('php://memory', 'w');
+        // Délimiteur entre les données
+        $delimiteur = ";";
+        // Définition du titre des champs
+        $champs = array('Identifiant BDD', 'Nom badge', 'Date évènement', 'Nom porte', 'Etat évènement', "\r");
+        // Ecriture des titres de champ dans le fichier
+        fputcsv($download, $champs, $delimiteur, "\r");
+        // Pour chaque entrée de la BDD historique (avec les join)
+        foreach ($historique as $valeur) {
+            $info_histo = array($valeur->id, $valeur->identite_nom, $valeur->dateEvenement, $valeur->porte_nom, $valeur->etatEvenement, "\r");
+            // Ecriture dans le fichier .csv
+            fputcsv($download, $info_histo, $delimiteur, "\r");
+        }
+        // Retour du curseur au début du fichier
+        fseek($download, 0);
+        // Définition des paramètres d'export
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename="' .$nom_fichier .'";');
+        // Lecture de tout le fichier et dirige le résultat pour le download
+        fpassthru($download);
+        // Fermeture
+        exit;
+    }
     // Redirection vers l'historique
     public function historique(Request $req) {
         //on verifie si on a a faire a une requete ajax
