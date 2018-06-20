@@ -128,6 +128,7 @@ class UpdateController extends Controller
         $users = User::find($n)->update(['username' => $req->username,
                                          'email' => $req->email,
                                          'roles' => $req->roles,
+                                         'expire_at' => $req->expire_at,
                                          'enabled' => $enabled
                                         ]);
         return redirect()->route('UtilisateursEdit', ['n' => $n]);
