@@ -86,7 +86,7 @@
                         </form>
                         <div class="row">
                             <div class="col-12 col-sm-6 text-center">
-                                @yield('supprimer')
+                                    <a href="{{ route('UtilisateursDelete', ['n' => $user->id]) }}"><button class="btn btn-danger" style="left:39vw; bottom:-2vh;">Supprimer</button></a>
                             </div>
                             <div class="col-12 col-sm-6 text-center">
                                 <a href="{{ route('Utilisateurs') }}"><button class="btn btn-blue-grey">Retour</button></a>
