@@ -4,7 +4,8 @@
 
 @section('content')
 <div class="espace" style="height:13vh;"></div>
-<div class="card mx-auto w-75">
+<div class="card mx-auto" style="width: 87vw; height:81vh"
+>
 <div class="card-header">
     <h1 class="text-center">Lecteurs - @yield('titre')</h1>
 </div>

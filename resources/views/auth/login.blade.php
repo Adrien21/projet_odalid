@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="espace" style="height:13vh;"></div>
-  <div class="card mx-auto" style="width: 63vw; height:67vh">
-    <div class="card-body">
+  <div class="card mx-auto w-75">
+    <div class="card-body px-0">
       <!-- Mask & flexbox options-->
       <div class="d-flex justify-content-center align-items-center">
 
@@ -12,10 +12,10 @@
         <div class="container">
 
           <!--Grid row-->
-          <div class="row wow fadeIn">
+          <div class="row align-items-center wow fadeIn">
 
             <!--Grid column-->
-            <div class="col-md-6 mb-4  text-center text-md-left">
+            <div class="col-md-6 mb-4 text-center text-md-left d-none d-md-block">
 
               <img src="{{asset('img/Logo1.png')}}" alt="logo">
 
@@ -23,7 +23,7 @@
 
 
 
-              <p class="mb-4 d-none d-md-block">
+              <p class="mb-4" style="overflow: auto; max-height: 40vh;">
                 <strong>ODALID conçoit, fabrique et commercialise des équipements électroniques pour l'identification,
                   la sécurisation et la traçabilité. Spécialisée dans le développement de lecteurs/encodeurs sans contact,
                    notre société propose des solutions RFID innovantes. Aujourd’hui grâce à notre avancée technologique,
@@ -42,10 +42,10 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-md-6 col-xl-5 mb-4">
+            <div class="col-md-6 col-12 mb-4">
 
               <!--Card-->
-              <div class="card" style="top: 5vh;left: 5vw;">
+              <div class="card">
 
                 <!--Card content-->
                 <div class="card-body">
@@ -71,11 +71,13 @@
                             <label for="materialFormRegisterPasswordEx">Mot de Passe</label><br>
                         </div>
                         <!-- Rectangular switch -->
+                        <!-- a developper avec uuid memorisé -->
+                        <!--
                         <label class="switch">
                           <input type="checkbox">
                           <span class="slider"> </span>
                         </label><p class="text-right">Rester connecté</p>
-
+                        -->
                         <div class="text-center mt-4">
                             <button class="btn indigo darken-4" type="submit">Valider</button> <br><br>
                             <a href="{{ route('forgot.pass') }}"><p class="font-weight-bold text-right">Mot de passe oublié?</p></a>

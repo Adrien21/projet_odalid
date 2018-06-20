@@ -1,14 +1,14 @@
 @extends('layouts.navigation')
 
 @section('content')
-<div class="espace" style="height:20vh;"></div>
+<div class="espace" style="height:13vh;"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="height: 80vh;">
                 <div class="h4 card-header text-center">Ajouter un utilisateur</div>
 
-                <div class="card-body">
+                <div class="card-body" style="height: 80vh; overflow: auto;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
