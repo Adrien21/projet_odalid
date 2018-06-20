@@ -10,8 +10,11 @@ use App\Relais;
 use App\Porte;
 use App\Lecteur;
 use App\User;
+use App\DateExpiration;
+use App\PlageHoraire;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class DeleteController extends Controller
 {
@@ -21,6 +24,19 @@ class DeleteController extends Controller
     }
     // Redirection vers badges
     public function badges($id) {
+        // Suppression dans od_identitezone et od_jour
+        // Récupération des entrées od_identitezone.identite_id = $id du badge à supprimer
+        $requete_identitezone = DateExpiration::where('identite_id', $id)->get();
+
+        // Pour chaque entrée récupérée, on supprimer les jours/heures d'accès associés
+        foreach ($requete_identitezone as $id_identitezone) {
+            $requete_jour = PlageHoraire::where('identiteZone_id', $id_identitezone->id)->delete();
+        }
+
+        // Suppression des entrées dans od_identitezone associées à l'id du badge à supprimer
+        $requete2 = DateExpiration::where('identite_id', $id)->delete();
+        
+        // Suppression du badge
         $requete = Badge::find($id)->delete();
         return redirect()->route('Badges');
     }
