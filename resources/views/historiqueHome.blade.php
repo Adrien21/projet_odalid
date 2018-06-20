@@ -11,6 +11,7 @@
       <p class="m-2">
           {{ csrf_field() }}
           <input type="text" id="search" name="recherche" placeholder="Rechercher un nom" value="">
+          <a href="{{ route('HistoriqueDownload') }}" target="_blank"><button class="btn btn-success">Exporter (.csv)</button></a>
       </p>
   </div>
   <div id="histo">

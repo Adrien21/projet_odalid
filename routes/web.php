@@ -56,6 +56,7 @@ Route::post('/utilisateurs/edit/{n?}', 'UpdateController@utilisateurs')->where('
 Route::get('/utilisateurs/delete/{n?}', 'DeleteController@utilisateurs')->middleware('authControl')->where('n', '[0-9]+')->name('UtilisateursDelete');
 
 Route::get('/historique', 'HomeController@historique')->name('Historique');
+Route::get('/historique/download', 'HomeController@historiqueDownload')->name('HistoriqueDownload');
 
 // accueil pour lister tous les badges
 Route::get('/badges', 'HomeController@badges')->name('Badges');
