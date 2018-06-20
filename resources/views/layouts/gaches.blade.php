@@ -28,7 +28,7 @@
 </div> -->
 
 <div class="espace" style="height:13vh;"></div>
-<div class="card mx-auto" style="width: 56vw; height:60vh;">
+<div class="card mx-auto w-75">
 <div class="card-header">
     <h1 class="text-center">Gâche - @yield('titre')</h1>
 </div>
@@ -82,13 +82,18 @@
 
         {{ csrf_field() }}
         <div class="form-group row">
-            <div class="col-md-4 col-form-label  mx-auto">
+            <div class="col-12 col-md-4 col-form-label text-center mx-auto">
                 <button type="submit" class="btn btn-primary btn-md">Valider</button>
             </div>
         </div>
     </form>
-    @yield('supprimer')
-    <br/><br/><br/>
-  <a href="{{ route('Gaches') }}"><button class="btn btn-blue-grey" style="left: 1vw;">Retour</button></a>
+    <div class="row">
+        <div class="col-12 col-sm-6 text-center">
+            @yield('supprimer')
+        </div>
+        <div class="col-12 col-sm-6 text-center">
+            <a href="{{ route('Gaches') }}"><button class="btn btn-blue-grey">Retour</button></a>
+        </div>
+    </div>
 </div>
 @endsection
