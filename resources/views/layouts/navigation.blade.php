@@ -13,83 +13,9 @@
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <style type="text/css">
-
-    html,
-    body,
-    header,
-    .view {
-    height: 80%;
-    }
-    @media (max-width: 740px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 100px;
-    }
-    }
-    @media (min-width: 800px) and (max-width: 850px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 650px;
-    }
-    }
-    @media (min-width: 800px) and (max-width: 850px) {
-            .navbar:not(.top-nav-collapse) {
-                background: #1C2331!important;
-            }
+        main {
+            background-image: url('{{ asset("img/fond5.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
         }
-        /* The switch - the box around the slider */
-    .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    }
-    /* Hide default HTML checkbox */
-    .switch input {display:none;}
-    /* The slider */
-    .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    }
-    .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    }
-    input:checked + .slider {
-    background-color: #2196F3;
-    }
-    input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-    }
-    input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-    }
-    main {
-      background-image: url('{{ asset("img/fond5.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
-    }
-    .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
-      background-color: #2E2E2E !important;
-    }
     </style>
     <title>ODALID @yield('titre')</title>
 
@@ -101,6 +27,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mycss.css') }}" rel="stylesheet">
     <link rel="icon" href="img/Logo4.png" />
 </head>
 <body>
@@ -194,7 +121,7 @@
         @show
 
         <main class="py-0">
-          <div class="mask rgba-black-light h-100">
+          <div class="mask">
 
 
             @yield('content')
