@@ -16,6 +16,5 @@
 @endsection
 
 @section('supprimer')
-	<br/><br/>
-  <a href="{{ route('SallesDelete', ['n' => $salle->id]) }}" class="d-flex justify-content-end"><button class="btn btn-danger" style="bottom: -11vh;left: -1vw;">Supprimer</button></a>
+  <a href="{{ route('SallesDelete', ['n' => $salle->id]) }}"><button class="btn btn-danger">Supprimer</button></a>
 @endsection

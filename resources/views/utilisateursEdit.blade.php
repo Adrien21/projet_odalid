@@ -77,7 +77,7 @@
 
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="mx-auto col-12 col-sm-6 text-center">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Valider') }}
                                     </button>
@@ -86,14 +86,12 @@
                         </form>
                         @yield('supprimer')
                         <div class="row">
-                          <div class="col-md-2">
-                              <a href="{{ route('Utilisateurs') }}"><button class="btn btn-blue-grey">Retour</button></a>
-                          </div>
-
-                        </div>
-
-                        </div>
-
+                            <div class="col-12 col-sm-6 text-center">
+                                <a href="{{ route('UtilisateursDelete', ['n' => $user->id]) }}"><button class="btn btn-danger">Supprimer</button></a>
+                            </div>
+                            <div class="col-12 col-sm-6 text-center">
+                                <a href="{{ route('Utilisateurs') }}"><button class="btn btn-blue-grey">Retour</button></a>
+                            </div>
                       </div>
 
                     </div>
