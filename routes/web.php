@@ -51,8 +51,8 @@ Route::get('/home', 'HomeController@index');
 // (Donc non accessibles si non connecté)
 
 Route::get('/utilisateurs', 'HomeController@utilisateurs')->name('Utilisateurs');
-Route::get('/utilisateurs/edit/{n?}', 'EditController@utilisateurs')->where('n', '[0-9]+')->name('UtilisateursEdit');
-Route::post('/utilisateurs/edit/{n?}', 'UpdateController@utilisateurs')->where('n', '[0-9]+');
+Route::get('/utilisateurs/edit/{n?}', 'EditController@utilisateurs')->where('n', '[0-9]+')->middleware('authControl')->name('UtilisateursEdit');
+Route::post('/utilisateurs/edit/{n?}', 'UpdateController@utilisateurs')->where('n', '[0-9]+')->middleware('authControl');
 Route::get('/utilisateurs/delete/{n?}', 'DeleteController@utilisateurs')->middleware('authControl')->where('n', '[0-9]+')->name('UtilisateursDelete');
 
 Route::get('/historique', 'HomeController@historique')->name('Historique');
