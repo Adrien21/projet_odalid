@@ -5,13 +5,13 @@
 
 @section('content')
 <div class="espace" style="height:13vh;"></div>
-<div class="card mx-auto" style="width: 50vw; height:74vh">
+<div class="card mx-auto" style="width: 60vw; height:74vh;">
 <div class="card-header">
-
     <h1 class="text-center">Badges - @yield('titre')</h1>
     </div>
+<div class="card-body"  style=" overflow: auto;">
 <form name="modif" action="" method="POST">
-     <p>@yield('id')<input type='hidden' name="id" value="@yield('id')"></p>
+     <input type='hidden' name="id" value="@yield('id')">
 
     @csrf
 
@@ -135,10 +135,21 @@
             <button type="submit" class="btn btn-primary btn-md">Valider</button>
         </div>
     </div>
-    
+
 </form>
+<div class="row">
+  <div class="col-md-2 col-sm-12">
+    <a href="{{ route('Badges') }}"><button class="btn btn-blue-grey">Retour</button></a>
+  </div>
+  <div class="col-sm-8">
 
-<p>@yield('delete')</p>
+  </div>
+<div class="col-md-2 col-sm-12">
+    @yield('delete')
 
+  </div>
+</div>
+
+</div>
 </div>
 @endsection

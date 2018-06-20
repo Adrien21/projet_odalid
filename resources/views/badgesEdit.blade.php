@@ -14,18 +14,18 @@
 
 @section('delete')
     <p>
-        <a href="{{ route('BadgesDelete', ['n' => $badge->id]) }}">Supprimer</a>
+        <a href="{{ route('BadgesDelete', ['n' => $badge->id]) }}"><button class="btn btn-danger">Supprimer</button></a>
     </p>
 @endsection
 
 @section('restriction')
-	<ul class="nav nav-tabs nav-justified indigo" role="tablist">
+	<ul class="nav nav-tabs justify-content-center indigo" role="tablist">
 
 	@foreach ($zones as $zone)
 		<li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#panel{{ $zone->id }}" role="tab">{{ $zone->nom }}</a>
       </li>
-			
+
 	@endforeach
 	</ul>
 	<div class="tab-content">
@@ -91,7 +91,7 @@
 						@endif
 				    @endforeach
 				<!-- Sinon affichage des champs dates vides -->
-				@else 
+				@else
 					<label for="dateDebut_{{$zone->id}}">Date de début : </label>
 				    <input type="date" id="dateDebut_{{$zone->id}}" name="dateDebut_{{$zone->id}}" value="">
 					<label for="dateFin_{{$zone->id}}">Date de fin : </label>
