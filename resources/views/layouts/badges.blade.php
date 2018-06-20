@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="espace" style="height:13vh;"></div>
-<div class="card mx-auto" style="width: 70vw; height:80vh;">
+<div class="card mx-auto" style="width: 80vw; height:80vh;">
 <div class="card-header">
     <h1 class="text-center">Badges - @yield('titre')</h1>
     </div>
