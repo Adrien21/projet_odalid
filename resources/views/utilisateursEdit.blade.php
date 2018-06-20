@@ -3,14 +3,14 @@
 @section('titre', 'Utilisateurs')
 
 @section('content')
-    <div class="espace" style="height:20vh;"></div>
+    <div class="espace" style="height:13vh;"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" style="height: auto;">
                     <div class="h4 card-header text-center">Modifier un utilisateur</div>
 
-                    <div class="card-body">
+                    <div class="card-body" style="height: auto;">
                         <form method="POST" name="modif" action="">
                             @csrf
 
