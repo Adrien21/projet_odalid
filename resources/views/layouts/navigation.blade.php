@@ -122,8 +122,6 @@
 
         <main class="py-0">
           <div class="mask">
-
-
             @yield('content')
             </div>
         </main>
