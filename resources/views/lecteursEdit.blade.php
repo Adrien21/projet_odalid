@@ -9,12 +9,17 @@
 @section('option')
     	@foreach ($portes as $porte)
     		@if ($lecteur->porte_id === $porte->id)
-        		<span class="ml-3" name="porte_id">Porte : {{ $porte->nom }}</span>
+        <div class="form-group row">
+          <label for="porten" class="col-md-4 col-form-label text-md-right">Porte </label>
+          <div class="col-md-6">
+              <input id="nom" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="porten"  value="{{ $porte->nom }}" disabled>
+          </div>
+        </div>
         	@endif
         @endforeach
 @endsection
 
 @section('supprimer')
 	<br/><br/>
-	<a href="{{ route('LecteursDelete', ['n' => $lecteur->id]) }}"><button>Supprimer</button></a>
+	<a href="{{ route('LecteursDelete', ['n' => $lecteur->id]) }}"><button class="btn btn-danger" style="left: 48vw;bottom: -5.4vh;">Supprimer</button></a>
 @endsection

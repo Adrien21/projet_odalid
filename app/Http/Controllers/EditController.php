@@ -31,24 +31,29 @@ class EditController extends Controller
     public function badges($n) {
         $badge = Badge::where('id', $n)->first();
         $referents = Badge::where('type', '!=', NULL)->get();
+        // Récupération nécessaire update et edit/read
         $zones = Zone::get();
         $id_tablezone = Zone::select('id')->get();
         $dates_expirations = DateExpiration::where('identite_id', $n)->get();
+
+        // dates_expirations = table od_identitezone, pour retrouver les dates permises
         if (isset($dates_expirations) && $dates_expirations != null) {
-            $table_identitezone = new Collection();
+            $table_jour = new Collection();
+            // Pour chaque résultat, on concatène dans $plage_horaire les heures associées aux dates de permissions
             foreach ($dates_expirations as $id_identitezone) {
                 $plage_horaire = PlageHoraire::where('identiteZone_id', $id_identitezone->id)->orderBy('nom', 'asc')->get();
-                $table_identitezone = $table_identitezone->merge($plage_horaire);
+                $table_jour = $table_jour->merge($plage_horaire);
             }
+            // Si aucune date de permission -> on envoit un résultat null
         } else {
             $dates_expirations = null;
-            $table_identitezone = null;
+            $table_jour = null;
         }
         return view('badgesEdit')->with('badge', $badge)
                                  ->with('referents', $referents)
                                  ->with('zones', $zones)
                                  ->with('dates_expirations', $dates_expirations)
-                                 ->with('table_identitezone', $table_identitezone)
+                                 ->with('table_jour', $table_jour)
                                  ->with('id_tablezone', $id_tablezone);
     }
 

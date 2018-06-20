@@ -8,7 +8,7 @@
 	<div class="card mx-auto" style="width: 87vw; height:81vh">
   <div class="card-header">
     <h1 class="text-center">Portes</h1>
-      <a href="{{ route('PortesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-address-card" aria-hidden="true"></i></a>
+      <a href="{{ route('PortesNew') }}"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-columns" aria-hidden="true"></i> Ajouter une porte</a>
   </div>
   <div class="card-body" style=" overflow: auto; height:70vh;">
 
