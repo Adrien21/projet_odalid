@@ -15,7 +15,7 @@
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <style type="text/css">
-        main {
+        body {
             background-image: url('{{ asset("img/fond5.jpg")}}'); background-repeat: no-repeat; background-size: cover; height: 100vh;
         }
     </style>
