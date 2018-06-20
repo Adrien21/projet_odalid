@@ -3,6 +3,7 @@
 @section('titre', 'Portes')
 
 @section('content')
+<!-- ------------------ PORTES EDIT PAGE ------------------ -->
 
   <div class="espace" style="height:13vh;"></div>
   <div class="card mx-auto" style="width: 48vw; height:54vh;">
@@ -48,7 +49,6 @@
               </div>
           </div>
 
-
           {{ csrf_field() }}
           <div class="form-group row">
               <div class="col-md-4 col-form-label  mx-auto">
@@ -65,5 +65,4 @@
           </div>
       </div>
   </div>
-
 @endsection

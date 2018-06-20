@@ -1,6 +1,8 @@
 @extends('layouts.navigation')
 
 @section('content')
+<!-- ------------------ PASSWORD RESET PAGE ------------------ -->
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -3,10 +3,11 @@
 @section('titre', 'Salles')
 
 @section('content')
-  <div class="espace" style="height:29vh;"></div>
+ <!-- ---------- SALLES EDIT PAGE ---------- -->
+
+<div class="espace" style="height:29vh;"></div>
 <div class="card mx-auto w-75">
     <div class="card-header">
-
         <h1 class="text-center">Salle - @yield('titre')</h1>
     </div>
     <form name="modif" action="" method="POST">
@@ -22,6 +23,7 @@
                   @endif
               </div>
           </div>
+
           <div class="form-group row">
               <label for="zone_id" class="col-md-4 col-form-label text-md-right">Zone* : </label>
               <div class="col-md-6">
@@ -30,13 +32,16 @@
               </select>
               </div>
           </div>
+
           {{ csrf_field() }}
+
         <div class="form-group row">
             <div class="col-12 col-md-4 col-form-label text-center mx-auto">
                 <button type="submit" class="btn btn-primary btn-md">Valider</button>
             </div>
         </div>
     </form>
+
     <div class="row">
         <div class="col-12 col-sm-6 text-center">
             @yield('supprimer')
