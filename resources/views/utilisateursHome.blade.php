@@ -15,7 +15,10 @@
     <table class="table table-striped">
         <thead>
         <tr>
-          <th scope="col">Editer</th>
+
+          	@if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+          		<th scope="col">Editer</th>
+          	@endif
           <th scope="col">Compte</th>
           <th scope="col">Email</th>
           <th scope="col">Actif</th>
@@ -28,7 +31,9 @@
 
         @foreach ($users as $user)
           <tr>
-              <th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}"><i class="fa fa-edit deep-orange-text" aria-hidden="true"></i></a></th>
+          	@if (Auth::user()->roles == 'superadmin' || Auth::user()->roles == 'admin')
+            	<th scope='row'><a href="{{ route('UtilisateursEdit', ['n' => $user->id ]) }}"><i class="fa fa-edit deep-orange-text" aria-hidden="true"></i></a></th>
+    		@endif
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->enabled }}</td>
